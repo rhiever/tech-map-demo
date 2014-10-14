@@ -1,0 +1,245 @@
+<!DOCTYPE html>
+<meta charset="utf-8">
+
+<style>
+        .map { position: relative; margin: 0 auto; width: 1000px; height: 500px;}
+</style>
+
+<title>The most in-demand programming language in each U.S. state</title>
+
+<script src="http://d3js.org/d3.v3.min.js"></script>
+<script src="http://d3js.org/topojson.v1.min.js"></script>
+<script src="http://datamaps.github.io/scripts/datamaps.usa.min.js"></script>
+
+<center><h1>The most in-demand programming language in each U.S. state</h1></center>
+
+<div class="map" id="us_map_programming_demand"></div>
+
+<script>
+var job_postings = new Datamap({
+  scope: 'usa',
+  element: document.getElementById('us_map_programming_demand'),
+  geographyConfig: {
+    highlightBorderColor: '#fff',
+   popupTemplate: function(geography, data) {
+      return '<div class="hoverinfo"><strong>' + geography.properties.name + '</strong> <br />' + data.fillKey + ' job openings: ' +  data.jobPostings + ' </div>'
+    },
+    highlightBorderWidth: 3
+  },
+
+  fills: {
+  'Java': '#1F77B4',
+  'SQL': '#D62834',
+  'C#': '#FF7F0E',
+  'C': '#2CA02C',
+  'C++': '#9467BD',
+  'JavaScript': '#8C564B',
+  defaultFill: '#7F7F7F'
+},
+data:{
+  "AL": {
+      "fillKey": "C++",
+      "jobPostings": 145
+  },
+  "AK": {
+      "fillKey": "C",
+      "jobPostings": 15
+  },
+  "AZ": {
+      "fillKey": "Java",
+      "jobPostings": 499
+  },
+  "AR": {
+      "fillKey": "Java",
+      "jobPostings": 50
+  },
+  "CA": {
+      "fillKey": "C",
+      "jobPostings": 4919
+  },
+  "CO": {
+      "fillKey": "Java",
+      "jobPostings": 708
+  },
+  "CT": {
+      "fillKey": "Java",
+      "jobPostings": 325
+  },
+  "DE": {
+      "fillKey": "Java",
+      "jobPostings": 128
+  },
+  "FL": {
+      "fillKey": "Java",
+      "jobPostings": 896
+  },
+  "GA": {
+      "fillKey": "Java",
+      "jobPostings": 891
+  },
+  "HI": {
+      "fillKey": "C#",
+      "jobPostings": 27
+  },
+  "ID": {
+      "fillKey": "C",
+      "jobPostings": 52
+  },
+  "IL": {
+      "fillKey": "Java",
+      "jobPostings": 1188
+  },
+  "IN": {
+      "fillKey": "JavaScript",
+      "jobPostings": 203
+  },
+  "IA": {
+      "fillKey": "Java",
+      "jobPostings": 146
+  },
+  "KS": {
+      "fillKey": "C#",
+      "jobPostings": 131
+  },
+  "KY": {
+      "fillKey": "C#",
+      "jobPostings": 116
+  },
+  "LA": {
+      "fillKey": "C#",
+      "jobPostings": 72
+  },
+  "MD": {
+      "fillKey": "SQL",
+      "jobPostings": 1238
+  },
+  "MA": {
+      "fillKey": "SQL",
+      "jobPostings": 1281
+  },
+  "ME": {
+      "fillKey": "Java",
+      "jobPostings": 57
+  },
+  "MI": {
+      "fillKey": "C",
+      "jobPostings": 556
+  },
+  "MN": {
+      "fillKey": "Java",
+      "jobPostings": 474
+  },
+  "MS": {
+      "fillKey": "C",
+      "jobPostings": 22
+  },
+  "MO": {
+      "fillKey": "Java",
+      "jobPostings": 297
+  },
+  "MT": {
+      "fillKey": "C#",
+      "jobPostings": 21
+  },
+  "NE": {
+      "fillKey": "Java",
+      "jobPostings": 135
+  },
+  "NV": {
+      "fillKey": "C++",
+      "jobPostings": 128
+  },
+  "NH": {
+      "fillKey": "C++",
+      "jobPostings": 100
+  },
+  "NJ": {
+      "fillKey": "Java",
+      "jobPostings": 982
+  },
+  "NM": {
+      "fillKey": "SQL",
+      "jobPostings": 67
+  },
+  "NY": {
+      "fillKey": "Java",
+      "jobPostings": 2357
+  },
+  "NC": {
+      "fillKey": "Java",
+      "jobPostings": 782
+  },
+  "ND": {
+      "fillKey": "Java",
+      "jobPostings": 18
+  },
+  "OH": {
+      "fillKey": "Java",
+      "jobPostings": 710
+  },
+  "OK": {
+      "fillKey": "Java",
+      "jobPostings": 111
+  },
+  "OR": {
+      "fillKey": "SQL",
+      "jobPostings": 352
+  },
+  "PA": {
+      "fillKey": "Java",
+      "jobPostings": 985
+  },
+  "RI": {
+      "fillKey": "Java",
+      "jobPostings": 74
+  },
+  "SC": {
+      "fillKey": "Java",
+      "jobPostings": 169
+  },
+  "SD": {
+      "fillKey": "C#",
+      "jobPostings": 17
+  },
+  "TN": {
+      "fillKey": "Java",
+      "jobPostings": 236
+  },
+  "TX": {
+      "fillKey": "Java",
+      "jobPostings": 1796
+  },
+  "UT": {
+      "fillKey": "Java",
+      "jobPostings": 260
+  },
+  "VT": {
+      "fillKey": "JavaScript",
+      "jobPostings": 23
+  },
+  "VA": {
+      "fillKey": "SQL",
+      "jobPostings": 2126
+  },
+  "WA": {
+      "fillKey": "C++",
+      "jobPostings": 1394
+  },
+  "WV": {
+      "fillKey": "Java",
+      "jobPostings": 31
+  },
+  "WI": {
+      "fillKey": "Java",
+      "jobPostings": 179
+  },
+  "WY": {
+      "fillKey": "Java",
+      "jobPostings": 5
+  }
+}
+});
+
+//job_postings.labels();
+job_postings.legend();
+</script>
