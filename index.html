@@ -5,13 +5,17 @@
         .map { position: relative; margin: 0 auto; width: 1000px; height: 500px;}
 </style>
 
-<title>The most in-demand programming language in each U.S. state</title>
+<title>The landscape of programming jobs in the U.S.</title>
 
 <script src="http://d3js.org/d3.v3.min.js"></script>
 <script src="http://d3js.org/topojson.v1.min.js"></script>
 <script src="http://datamaps.github.io/scripts/datamaps.usa.min.js"></script>
 
-<center><h1>The most in-demand programming language in each U.S. state</h1></center>
+<center><h1>Want a programming job in the U.S.?<br />You better learn these programming languages</h1></center>
+
+<br />
+
+<center><h3>The most common programming language in job ads in each U.S. state</h3></center>
 
 <div class="map" id="us_map_programming_demand"></div>
 
@@ -22,7 +26,7 @@ var job_postings = new Datamap({
   geographyConfig: {
     highlightBorderColor: '#fff',
    popupTemplate: function(geography, data) {
-      return '<div class="hoverinfo"><strong>' + geography.properties.name + '</strong> <br />' + data.fillKey + ' job openings: ' +  data.jobPostings + ' </div>'
+      return '<div class="hoverinfo"><strong>' + geography.properties.name + '</strong> <br />' + data.fillKey + ' job openings: ' +  data.value + ' </div>'
     },
     highlightBorderWidth: 3
   },
@@ -39,203 +43,826 @@ var job_postings = new Datamap({
 data:{
   "AL": {
       "fillKey": "C++",
-      "jobPostings": 145
+      "value": 145
   },
+
   "AK": {
       "fillKey": "C",
-      "jobPostings": 15
+      "value": 15
   },
+
   "AZ": {
       "fillKey": "Java",
-      "jobPostings": 499
+      "value": 499
   },
+
   "AR": {
       "fillKey": "Java",
-      "jobPostings": 50
+      "value": 50
   },
+
   "CA": {
       "fillKey": "C",
-      "jobPostings": 4919
+      "value": 4919
   },
+
   "CO": {
       "fillKey": "Java",
-      "jobPostings": 708
+      "value": 708
   },
+
   "CT": {
       "fillKey": "Java",
-      "jobPostings": 325
+      "value": 325
   },
+
   "DE": {
       "fillKey": "Java",
-      "jobPostings": 128
+      "value": 128
   },
+
   "FL": {
       "fillKey": "Java",
-      "jobPostings": 896
+      "value": 896
   },
+
   "GA": {
       "fillKey": "Java",
-      "jobPostings": 891
+      "value": 891
   },
+
   "HI": {
       "fillKey": "C#",
-      "jobPostings": 27
+      "value": 27
   },
+
   "ID": {
       "fillKey": "C",
-      "jobPostings": 52
+      "value": 52
   },
+
   "IL": {
       "fillKey": "Java",
-      "jobPostings": 1188
+      "value": 1188
   },
+
   "IN": {
       "fillKey": "JavaScript",
-      "jobPostings": 203
+      "value": 203
   },
+
   "IA": {
       "fillKey": "Java",
-      "jobPostings": 146
+      "value": 146
   },
+
   "KS": {
       "fillKey": "C#",
-      "jobPostings": 131
+      "value": 131
   },
+
   "KY": {
       "fillKey": "C#",
-      "jobPostings": 116
+      "value": 116
   },
+
   "LA": {
       "fillKey": "C#",
-      "jobPostings": 72
+      "value": 72
   },
-  "MD": {
-      "fillKey": "SQL",
-      "jobPostings": 1238
-  },
-  "MA": {
-      "fillKey": "SQL",
-      "jobPostings": 1281
-  },
+
   "ME": {
       "fillKey": "Java",
-      "jobPostings": 57
+      "value": 57
   },
+
+  "MD": {
+      "fillKey": "SQL",
+      "value": 1238
+  },
+
+  "MA": {
+      "fillKey": "SQL",
+      "value": 1281
+  },
+
   "MI": {
       "fillKey": "C",
-      "jobPostings": 556
+      "value": 556
   },
+
   "MN": {
       "fillKey": "Java",
-      "jobPostings": 474
+      "value": 474
   },
+
   "MS": {
       "fillKey": "C",
-      "jobPostings": 22
+      "value": 22
   },
+
   "MO": {
       "fillKey": "Java",
-      "jobPostings": 297
+      "value": 297
   },
+
   "MT": {
       "fillKey": "C#",
-      "jobPostings": 21
+      "value": 21
   },
+
   "NE": {
       "fillKey": "Java",
-      "jobPostings": 135
+      "value": 135
   },
+
   "NV": {
       "fillKey": "C++",
-      "jobPostings": 128
+      "value": 128
   },
+
   "NH": {
       "fillKey": "C++",
-      "jobPostings": 100
+      "value": 100
   },
+
   "NJ": {
       "fillKey": "Java",
-      "jobPostings": 982
+      "value": 982
   },
+
   "NM": {
       "fillKey": "SQL",
-      "jobPostings": 67
+      "value": 67
   },
+
   "NY": {
       "fillKey": "Java",
-      "jobPostings": 2357
+      "value": 2357
   },
+
   "NC": {
       "fillKey": "Java",
-      "jobPostings": 782
+      "value": 782
   },
+
   "ND": {
       "fillKey": "Java",
-      "jobPostings": 18
+      "value": 18
   },
+
   "OH": {
       "fillKey": "Java",
-      "jobPostings": 710
+      "value": 710
   },
+
   "OK": {
       "fillKey": "Java",
-      "jobPostings": 111
+      "value": 111
   },
+
   "OR": {
       "fillKey": "SQL",
-      "jobPostings": 352
+      "value": 352
   },
+
   "PA": {
       "fillKey": "Java",
-      "jobPostings": 985
+      "value": 985
   },
+
   "RI": {
       "fillKey": "Java",
-      "jobPostings": 74
+      "value": 74
   },
+
   "SC": {
       "fillKey": "Java",
-      "jobPostings": 169
+      "value": 169
   },
+
   "SD": {
       "fillKey": "C#",
-      "jobPostings": 17
+      "value": 17
   },
+
   "TN": {
       "fillKey": "Java",
-      "jobPostings": 236
+      "value": 236
   },
+
   "TX": {
       "fillKey": "Java",
-      "jobPostings": 1796
+      "value": 1796
   },
+
   "UT": {
       "fillKey": "Java",
-      "jobPostings": 260
+      "value": 260
   },
+
   "VT": {
       "fillKey": "JavaScript",
-      "jobPostings": 23
+      "value": 23
   },
+
   "VA": {
       "fillKey": "SQL",
-      "jobPostings": 2126
+      "value": 2126
   },
+
   "WA": {
       "fillKey": "C++",
-      "jobPostings": 1394
+      "value": 1394
   },
+
   "WV": {
       "fillKey": "Java",
-      "jobPostings": 31
+      "value": 31
   },
+
   "WI": {
       "fillKey": "Java",
-      "jobPostings": 179
+      "value": 179
   },
+
   "WY": {
       "fillKey": "Java",
-      "jobPostings": 5
+      "value": 5
+  }
+}
+});
+
+//job_postings.labels();
+job_postings.legend();
+</script>
+
+<br />
+<br />
+<br />
+<br />
+
+<center><h3>The most common programming language listed in resumes in each U.S. state</h3></center>
+
+<div class="map" id="us_map_programming_supply"></div>
+
+<script>
+var job_postings = new Datamap({
+  scope: 'usa',
+  element: document.getElementById('us_map_programming_supply'),
+  geographyConfig: {
+    highlightBorderColor: '#fff',
+   popupTemplate: function(geography, data) {
+      return '<div class="hoverinfo"><strong>' + geography.properties.name + '</strong> <br />Resumes listing ' + data.fillKey + ': ' +  data.value + ' </div>'
+    },
+    highlightBorderWidth: 3
+  },
+
+  fills: {
+  'Java': '#1F77B4',
+  'SQL': '#D62834',
+  'C#': '#FF7F0E',
+  'C': '#2CA02C',
+  'C++': '#9467BD',
+  'JavaScript': '#8C564B',
+  defaultFill: '#7F7F7F'
+},
+data:{
+  "AL": {
+      "fillKey": "C++",
+      "value": 1373
+  },
+
+  "AK": {
+      "fillKey": "C++",
+      "value": 53
+  },
+
+  "AZ": {
+      "fillKey": "SQL",
+      "value": 2536
+  },
+
+  "AR": {
+      "fillKey": "C",
+      "value": 529
+  },
+
+  "CA": {
+      "fillKey": "SQL",
+      "value": 19648
+  },
+
+  "CO": {
+      "fillKey": "C",
+      "value": 2656
+  },
+
+  "CT": {
+      "fillKey": "C",
+      "value": 1494
+  },
+
+  "DE": {
+      "fillKey": "C",
+      "value": 411
+  },
+
+  "FL": {
+      "fillKey": "C",
+      "value": 6492
+  },
+
+  "GA": {
+      "fillKey": "Java",
+      "value": 5647
+  },
+
+  "HI": {
+      "fillKey": "SQL",
+      "value": 153
+  },
+
+  "ID": {
+      "fillKey": "SQL",
+      "value": 269
+  },
+
+  "IL": {
+      "fillKey": "C",
+      "value": 5892
+  },
+
+  "IN": {
+      "fillKey": "SQL",
+      "value": 1566
+  },
+
+  "IA": {
+      "fillKey": "Java",
+      "value": 712
+  },
+
+  "KS": {
+      "fillKey": "SQL",
+      "value": 770
+  },
+
+  "KY": {
+      "fillKey": "C",
+      "value": 740
+  },
+
+  "LA": {
+      "fillKey": "C++",
+      "value": 721
+  },
+
+  "ME": {
+      "fillKey": "SQL",
+      "value": 219
+  },
+
+  "MD": {
+      "fillKey": "C",
+      "value": 4024
+  },
+
+  "MA": {
+      "fillKey": "SQL",
+      "value": 4393
+  },
+
+  "MI": {
+      "fillKey": "SQL",
+      "value": 2974
+  },
+
+  "MN": {
+      "fillKey": "C",
+      "value": 1777
+  },
+
+  "MS": {
+      "fillKey": "C",
+      "value": 447
+  },
+
+  "MO": {
+      "fillKey": "C",
+      "value": 1541
+  },
+
+  "MT": {
+      "fillKey": "C",
+      "value": 111
+  },
+
+  "NE": {
+      "fillKey": "Java",
+      "value": 316
+  },
+
+  "NV": {
+      "fillKey": "C",
+      "value": 586
+  },
+
+  "NH": {
+      "fillKey": "SQL",
+      "value": 596
+  },
+
+  "NJ": {
+      "fillKey": "Java",
+      "value": 6568
+  },
+
+  "NM": {
+      "fillKey": "C++",
+      "value": 455
+  },
+
+  "NY": {
+      "fillKey": "C",
+      "value": 8990
+  },
+
+  "NC": {
+      "fillKey": "C",
+      "value": 3800
+  },
+
+  "ND": {
+      "fillKey": "Java",
+      "value": 120
+  },
+
+  "OH": {
+      "fillKey": "C",
+      "value": 3330
+  },
+
+  "OK": {
+      "fillKey": "SQL",
+      "value": 776
+  },
+
+  "OR": {
+      "fillKey": "C",
+      "value": 1131
+  },
+
+  "PA": {
+      "fillKey": "C",
+      "value": 4525
+  },
+
+  "RI": {
+      "fillKey": "C",
+      "value": 356
+  },
+
+  "SC": {
+      "fillKey": "C",
+      "value": 1120
+  },
+
+  "SD": {
+      "fillKey": "C",
+      "value": 107
+  },
+
+  "TN": {
+      "fillKey": "C",
+      "value": 1461
+  },
+
+  "TX": {
+      "fillKey": "C",
+      "value": 13317
+  },
+
+  "UT": {
+      "fillKey": "Java",
+      "value": 981
+  },
+
+  "VT": {
+      "fillKey": "SQL",
+      "value": 132
+  },
+
+  "VA": {
+      "fillKey": "Java",
+      "value": 5451
+  },
+
+  "WA": {
+      "fillKey": "C",
+      "value": 2843
+  },
+
+  "WV": {
+      "fillKey": "SQL",
+      "value": 270
+  },
+
+  "WI": {
+      "fillKey": "Java",
+      "value": 1146
+  },
+
+  "WY": {
+      "fillKey": "C++",
+      "value": 64
+  }
+}
+});
+
+//job_postings.labels();
+job_postings.legend();
+</script>
+
+<br />
+<br />
+<br />
+<br />
+
+<center><h3>The best job:resume ratio in each U.S. state</h3></center>
+
+<div class="map" id="us_map_programming_ratio"></div>
+
+<script>
+var job_postings = new Datamap({
+  scope: 'usa',
+  element: document.getElementById('us_map_programming_ratio'),
+  geographyConfig: {
+    highlightBorderColor: '#fff',
+   popupTemplate: function(geography, data) {
+      return '<div class="hoverinfo"><strong>' + geography.properties.name + '</strong> <br />' + data.fillKey + ' job:resume ratio: ' + data.value + ' </div>'
+    },
+    highlightBorderWidth: 3
+  },
+
+  fills: {
+  'Java': '#1F77B4',
+  'SQL': '#D62834',
+  'C#': '#FF7F0E',
+  'C': '#2CA02C',
+  'C++': '#9467BD',
+  'JavaScript': '#8C564B',
+  defaultFill: '#7F7F7F'
+},
+data:{
+  "AL": {
+      "fillKey": "C#",
+      "value": 0.25
+  },
+
+  "AK": {
+      "fillKey": "C#",
+      "value": 0.47
+  },
+
+  "AZ": {
+      "fillKey": "JavaScript",
+      "value": 0.3
+  },
+
+  "AR": {
+      "fillKey": "C#",
+      "value": 0.17
+  },
+
+  "CA": {
+      "fillKey": "Java",
+      "value": 0.35
+  },
+
+  "CO": {
+      "fillKey": "C#",
+      "value": 0.41
+  },
+
+  "CT": {
+      "fillKey": "C#",
+      "value": 0.38
+  },
+
+  "DE": {
+      "fillKey": "C#",
+      "value": 0.45
+  },
+
+  "FL": {
+      "fillKey": "C#",
+      "value": 0.24
+  },
+
+  "GA": {
+      "fillKey": "C#",
+      "value": 0.24
+  },
+
+  "HI": {
+      "fillKey": "C#",
+      "value": 0.41
+  },
+
+  "ID": {
+      "fillKey": "C#",
+      "value": 0.29
+  },
+
+  "IL": {
+      "fillKey": "C#",
+      "value": 0.34
+  },
+
+  "IN": {
+      "fillKey": "JavaScript",
+      "value": 0.28
+  },
+
+  "IA": {
+      "fillKey": "C#",
+      "value": 0.41
+  },
+
+  "KS": {
+      "fillKey": "C#",
+      "value": 0.46
+  },
+
+  "KY": {
+      "fillKey": "C#",
+      "value": 0.33
+  },
+
+  "LA": {
+      "fillKey": "C#",
+      "value": 0.31
+  },
+
+  "ME": {
+      "fillKey": "SQL",
+      "value": 0.41
+  },
+
+  "MD": {
+      "fillKey": "Java",
+      "value": 0.47
+  },
+
+  "MA": {
+      "fillKey": "C#",
+      "value": 0.38
+  },
+
+  "MI": {
+      "fillKey": "C#",
+      "value": 0.28
+  },
+
+  "MN": {
+      "fillKey": "C#",
+      "value": 0.41
+  },
+
+  "MS": {
+      "fillKey": "C#",
+      "value": 0.09
+  },
+
+  "MO": {
+      "fillKey": "C#",
+      "value": 0.31
+  },
+
+  "MT": {
+      "fillKey": "C#",
+      "value": 0.34
+  },
+
+  "NE": {
+      "fillKey": "C#",
+      "value": 0.64
+  },
+
+  "NV": {
+      "fillKey": "C#",
+      "value": 0.41
+  },
+
+  "NH": {
+      "fillKey": "JavaScript",
+      "value": 0.23
+  },
+
+  "NJ": {
+      "fillKey": "C#",
+      "value": 0.16
+  },
+
+  "NM": {
+      "fillKey": "Java",
+      "value": 0.2
+  },
+
+  "NY": {
+      "fillKey": "C#",
+      "value": 0.35
+  },
+
+  "NC": {
+      "fillKey": "C#",
+      "value": 0.31
+  },
+
+  "ND": {
+      "fillKey": "SQL",
+      "value": 0.25
+  },
+
+  "OH": {
+      "fillKey": "C#",
+      "value": 0.32
+  },
+
+  "OK": {
+      "fillKey": "C#",
+      "value": 0.33
+  },
+
+  "OR": {
+      "fillKey": "C#",
+      "value": 0.51
+  },
+
+  "PA": {
+      "fillKey": "C#",
+      "value": 0.35
+  },
+
+  "RI": {
+      "fillKey": "JavaScript",
+      "value": 0.28
+  },
+
+  "SC": {
+      "fillKey": "C#",
+      "value": 0.25
+  },
+
+  "SD": {
+      "fillKey": "C#",
+      "value": 0.3
+  },
+
+  "TN": {
+      "fillKey": "JavaScript",
+      "value": 0.23
+  },
+
+  "TX": {
+      "fillKey": "C#",
+      "value": 0.23
+  },
+
+  "UT": {
+      "fillKey": "JavaScript",
+      "value": 0.33
+  },
+
+  "VT": {
+      "fillKey": "C#",
+      "value": 0.42
+  },
+
+  "VA": {
+      "fillKey": "C#",
+      "value": 0.62
+  },
+
+  "WA": {
+      "fillKey": "Java",
+      "value": 0.66
+  },
+
+  "WV": {
+      "fillKey": "JavaScript",
+      "value": 0.17
+  },
+
+  "WI": {
+      "fillKey": "C#",
+      "value": 0.37
+  },
+
+  "WY": {
+      "fillKey": "Java",
+      "value": 0.09
   }
 }
 });
