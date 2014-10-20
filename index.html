@@ -26,7 +26,7 @@ var job_postings = new Datamap({
   geographyConfig: {
     highlightBorderColor: '#fff',
    popupTemplate: function(geography, data) {
-      return '<div class="hoverinfo"><strong>' + geography.properties.name + '</strong> <br />' + data.fillKey + ' job openings: ' +  data.value + ' </div>'
+      return '<div class="hoverinfo"><strong>' + geography.properties.name + '</strong> <br />' + data.value + ' ' + data.fillKey + ' job openings</div>'
     },
     highlightBorderWidth: 3
   },
@@ -313,7 +313,7 @@ var job_postings = new Datamap({
   geographyConfig: {
     highlightBorderColor: '#fff',
    popupTemplate: function(geography, data) {
-      return '<div class="hoverinfo"><strong>' + geography.properties.name + '</strong> <br />Resumes listing ' + data.fillKey + ': ' +  data.value + ' </div>'
+      return '<div class="hoverinfo"><strong>' + geography.properties.name + '</strong> <br />' + data.value + ' resumes listing ' + data.fillKey + ' </div>'
     },
     highlightBorderWidth: 3
   },
@@ -600,7 +600,7 @@ var job_postings = new Datamap({
   geographyConfig: {
     highlightBorderColor: '#fff',
    popupTemplate: function(geography, data) {
-      return '<div class="hoverinfo"><strong>' + geography.properties.name + '</strong> <br />' + data.fillKey + ' job:resume ratio: ' + data.value + ' </div>'
+      return '<div class="hoverinfo"><strong>' + geography.properties.name + '</strong> <br />' + data.value + ' ' + data.fillKey + ' job:resume ratio</div>'
     },
     highlightBorderWidth: 3
   },
