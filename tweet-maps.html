@@ -1,0 +1,2863 @@
+<!DOCTYPE html>
+<meta charset="utf-8">
+
+<style>
+        .map { position: relative; margin: 0 auto; width: 1000px; height: 500px;}
+</style>
+
+<title>The landscape of programming jobs in the U.S.</title>
+
+<script src="http://d3js.org/d3.v3.min.js"></script>
+<script src="http://d3js.org/topojson.v1.min.js"></script>
+<script src="http://datamaps.github.io/scripts/datamaps.usa.min.js"></script>
+
+<center><h1>What's the most commonly discussed programming language on Twitter?</h1></center>
+
+<br />
+
+<center><h3>The most commonly mentioned programming language on Twitter in each U.S. state</h3></center>
+
+<div class="map" id="us_map_programming_twitter_overall"></div>
+
+<script>
+var twitter_map = new Datamap({
+  scope: 'usa',
+  element: document.getElementById('us_map_programming_twitter_overall'),
+  geographyConfig: {
+    highlightBorderColor: '#fff',
+   popupTemplate: function(geography, data) {
+      return '<div class="hoverinfo"><strong>' + geography.properties.name + '</strong> <br />' + data.value + ' tweets about ' + data.fillKey + '</div>'
+    },
+    highlightBorderWidth: 3
+  },
+
+  fills: {
+  'Java': '#1F77B4',
+  'JavaScript': '#D62834',
+  'Python': '#FF7F0E',
+  'PHP': '#2CA02C',
+  'Ruby': '#9467BD',
+  'C#': '#8C564B',
+  defaultFill: '#7F7F7F'
+},
+data:{
+  "AL": {
+      "fillKey": "JavaScript",
+      "value": 88
+  },
+
+  "AK": {
+      "fillKey": "Python",
+      "value": 6
+  },
+
+  "AZ": {
+      "fillKey": "JavaScript",
+      "value": 94
+  },
+
+  "AR": {
+      "fillKey": "Ruby",
+      "value": 10
+  },
+
+  "CA": {
+      "fillKey": "JavaScript",
+      "value": 1588
+  },
+
+  "CO": {
+      "fillKey": "Java",
+      "value": 129
+  },
+
+  "CT": {
+      "fillKey": "JavaScript",
+      "value": 71
+  },
+
+  "DE": {
+      "fillKey": "JavaScript",
+      "value": 4
+  },
+
+  "FL": {
+      "fillKey": "JavaScript",
+      "value": 548
+  },
+
+  "GA": {
+      "fillKey": "JavaScript",
+      "value": 24788
+  },
+
+  "HI": {
+      "fillKey": "Java",
+      "value": 6
+  },
+
+  "ID": {
+      "fillKey": "Python",
+      "value": 19
+  },
+
+  "IL": {
+      "fillKey": "JavaScript",
+      "value": 278
+  },
+
+  "IN": {
+      "fillKey": "Python",
+      "value": 44
+  },
+
+  "IA": {
+      "fillKey": "Java",
+      "value": 57
+  },
+
+  "KS": {
+      "fillKey": "Java",
+      "value": 38
+  },
+
+  "KY": {
+      "fillKey": "Java",
+      "value": 25
+  },
+
+  "LA": {
+      "fillKey": "PHP",
+      "value": 12
+  },
+
+  "ME": {
+      "fillKey": "JavaScript",
+      "value": 20
+  },
+
+  "MD": {
+      "fillKey": "Java",
+      "value": 60
+  },
+
+  "MA": {
+      "fillKey": "Java",
+      "value": 196
+  },
+
+  "MI": {
+      "fillKey": "PHP",
+      "value": 225
+  },
+
+  "MN": {
+      "fillKey": "Java",
+      "value": 62
+  },
+
+  "MS": {
+      "fillKey": "JavaScript",
+      "value": 16
+  },
+
+  "MO": {
+      "fillKey": "JavaScript",
+      "value": 79
+  },
+
+  "MT": {
+      "fillKey": "Java",
+      "value": 5
+  },
+
+  "NE": {
+      "fillKey": "Java",
+      "value": 47
+  },
+
+  "NV": {
+      "fillKey": "JavaScript",
+      "value": 31
+  },
+
+  "NH": {
+      "fillKey": "JavaScript",
+      "value": 36
+  },
+
+  "NJ": {
+      "fillKey": "Java",
+      "value": 213
+  },
+
+  "NM": {
+      "fillKey": "Java",
+      "value": 12
+  },
+
+  "NY": {
+      "fillKey": "Java",
+      "value": 853
+  },
+
+  "NC": {
+      "fillKey": "JavaScript",
+      "value": 149
+  },
+
+  "ND": {
+      "fillKey": "Java",
+      "value": 14
+  },
+
+  "OH": {
+      "fillKey": "JavaScript",
+      "value": 228
+  },
+
+  "OK": {
+      "fillKey": "JavaScript",
+      "value": 478
+  },
+
+  "OR": {
+      "fillKey": "Java",
+      "value": 88
+  },
+
+  "PA": {
+      "fillKey": "Java",
+      "value": 157
+  },
+
+  "RI": {
+      "fillKey": "Java",
+      "value": 10
+  },
+
+  "SC": {
+      "fillKey": "C#",
+      "value": 85
+  },
+
+  "SD": {
+      "fillKey": "PHP",
+      "value": 27
+  },
+
+  "TN": {
+      "fillKey": "JavaScript",
+      "value": 123
+  },
+
+  "TX": {
+      "fillKey": "JavaScript",
+      "value": 830
+  },
+
+  "UT": {
+      "fillKey": "JavaScript",
+      "value": 84
+  },
+
+  "VT": {
+      "fillKey": "Java",
+      "value": 12
+  },
+
+  "VA": {
+      "fillKey": "Java",
+      "value": 287
+  },
+
+  "WA": {
+      "fillKey": "JavaScript",
+      "value": 150
+  },
+
+  "WV": {
+      "fillKey": "Python",
+      "value": 28
+  },
+
+  "WI": {
+      "fillKey": "Java",
+      "value": 76
+  },
+
+  "WY": {
+      "fillKey": "Java",
+      "value": 2
+  }
+}
+});
+
+//twitter_map.labels();
+twitter_map.legend();
+</script>
+
+<br />
+<br />
+<br />
+<br />
+
+<center><h3>Java vs. JavaScript</h3></center>
+
+<div class="map" id="us_map_programming_twitter_java_javascript"></div>
+
+<script>
+var twitter_map = new Datamap({
+  scope: 'usa',
+  element: document.getElementById('us_map_programming_twitter_java_javascript'),
+  geographyConfig: {
+    highlightBorderColor: '#fff',
+   popupTemplate: function(geography, data) {
+   	  if (data.fillKey == 'No tweets') return '<div class="hoverinfo"><strong>' + geography.properties.name + '</strong> <br />No tweets available'
+   	  else return '<div class="hoverinfo"><strong>' + geography.properties.name + '</strong> <br />' + data.value + ' tweets about ' + data.fillKey + '</div>'
+    },
+    highlightBorderWidth: 3
+  },
+
+  fills: {
+  'Java': '#1F77B4',
+  'JavaScript': '#D62834',
+  'No tweets': '#7F7F7F',
+  defaultFill: '#7F7F7F'
+},
+data:{
+  "AL": {
+      "fillKey": "JavaScript",
+      "value": 88
+  },
+
+  "AK": {
+      "fillKey": "No tweets",
+      "value": 0
+  },
+
+  "AZ": {
+      "fillKey": "JavaScript",
+      "value": 94
+  },
+
+  "AR": {
+      "fillKey": "Java",
+      "value": 6
+  },
+
+  "CA": {
+      "fillKey": "JavaScript",
+      "value": 1588
+  },
+
+  "CO": {
+      "fillKey": "Java",
+      "value": 129
+  },
+
+  "CT": {
+      "fillKey": "JavaScript",
+      "value": 71
+  },
+
+  "DE": {
+      "fillKey": "JavaScript",
+      "value": 4
+  },
+
+  "FL": {
+      "fillKey": "JavaScript",
+      "value": 548
+  },
+
+  "GA": {
+      "fillKey": "JavaScript",
+      "value": 24788
+  },
+
+  "HI": {
+      "fillKey": "Java",
+      "value": 6
+  },
+
+  "ID": {
+      "fillKey": "JavaScript",
+      "value": 13
+  },
+
+  "IL": {
+      "fillKey": "JavaScript",
+      "value": 278
+  },
+
+  "IN": {
+      "fillKey": "Java",
+      "value": 34
+  },
+
+  "IA": {
+      "fillKey": "Java",
+      "value": 57
+  },
+
+  "KS": {
+      "fillKey": "Java",
+      "value": 38
+  },
+
+  "KY": {
+      "fillKey": "Java",
+      "value": 25
+  },
+
+  "LA": {
+      "fillKey": "JavaScript",
+      "value": 9
+  },
+
+  "ME": {
+      "fillKey": "JavaScript",
+      "value": 20
+  },
+
+  "MD": {
+      "fillKey": "Java",
+      "value": 60
+  },
+
+  "MA": {
+      "fillKey": "Java",
+      "value": 196
+  },
+
+  "MI": {
+      "fillKey": "JavaScript",
+      "value": 78
+  },
+
+  "MN": {
+      "fillKey": "Java",
+      "value": 62
+  },
+
+  "MS": {
+      "fillKey": "JavaScript",
+      "value": 16
+  },
+
+  "MO": {
+      "fillKey": "JavaScript",
+      "value": 79
+  },
+
+  "MT": {
+      "fillKey": "Java",
+      "value": 5
+  },
+
+  "NE": {
+      "fillKey": "Java",
+      "value": 47
+  },
+
+  "NV": {
+      "fillKey": "JavaScript",
+      "value": 31
+  },
+
+  "NH": {
+      "fillKey": "JavaScript",
+      "value": 36
+  },
+
+  "NJ": {
+      "fillKey": "Java",
+      "value": 213
+  },
+
+  "NM": {
+      "fillKey": "Java",
+      "value": 12
+  },
+
+  "NY": {
+      "fillKey": "Java",
+      "value": 853
+  },
+
+  "NC": {
+      "fillKey": "JavaScript",
+      "value": 149
+  },
+
+  "ND": {
+      "fillKey": "Java",
+      "value": 14
+  },
+
+  "OH": {
+      "fillKey": "JavaScript",
+      "value": 228
+  },
+
+  "OK": {
+      "fillKey": "JavaScript",
+      "value": 478
+  },
+
+  "OR": {
+      "fillKey": "Java",
+      "value": 88
+  },
+
+  "PA": {
+      "fillKey": "Java",
+      "value": 157
+  },
+
+  "RI": {
+      "fillKey": "Java",
+      "value": 10
+  },
+
+  "SC": {
+      "fillKey": "JavaScript",
+      "value": 48
+  },
+
+  "SD": {
+      "fillKey": "Java",
+      "value": 4
+  },
+
+  "TN": {
+      "fillKey": "JavaScript",
+      "value": 123
+  },
+
+  "TX": {
+      "fillKey": "JavaScript",
+      "value": 830
+  },
+
+  "UT": {
+      "fillKey": "JavaScript",
+      "value": 84
+  },
+
+  "VT": {
+      "fillKey": "Java",
+      "value": 12
+  },
+
+  "VA": {
+      "fillKey": "Java",
+      "value": 287
+  },
+
+  "WA": {
+      "fillKey": "JavaScript",
+      "value": 150
+  },
+
+  "WV": {
+      "fillKey": "JavaScript",
+      "value": 12
+  },
+
+  "WI": {
+      "fillKey": "Java",
+      "value": 76
+  },
+
+  "WY": {
+      "fillKey": "Java",
+      "value": 2
+  }
+}
+});
+
+//twitter_map.labels();
+twitter_map.legend();
+</script>
+
+<br />
+<br />
+<br />
+<br />
+
+<center><h3>Scala vs. Clojure</h3></center>
+
+<div class="map" id="us_map_programming_twitter_scala_clojure"></div>
+
+<script>
+var twitter_map = new Datamap({
+  scope: 'usa',
+  element: document.getElementById('us_map_programming_twitter_scala_clojure'),
+  geographyConfig: {
+    highlightBorderColor: '#fff',
+   popupTemplate: function(geography, data) {
+   	  if (data.fillKey == 'No tweets') return '<div class="hoverinfo"><strong>' + geography.properties.name + '</strong> <br />No tweets available'
+   	  else return '<div class="hoverinfo"><strong>' + geography.properties.name + '</strong> <br />' + data.value + ' tweets about ' + data.fillKey + '</div>'
+    },
+    highlightBorderWidth: 3
+  },
+
+  fills: {
+  'Scala': '#1F77B4',
+  'Clojure': '#D62834',
+  'No tweets': '#7F7F7F',
+  defaultFill: '#7F7F7F'
+},
+data:{
+  "AL": {
+      "fillKey": "Scala",
+      "value": 2
+  },
+
+  "AK": {
+      "fillKey": "No tweets",
+      "value": 0
+  },
+
+  "AZ": {
+      "fillKey": "Scala",
+      "value": 3
+  },
+
+  "AR": {
+      "fillKey": "No tweets",
+      "value": 0
+  },
+
+  "CA": {
+      "fillKey": "Scala",
+      "value": 213
+  },
+
+  "CO": {
+      "fillKey": "Scala",
+      "value": 41
+  },
+
+  "CT": {
+      "fillKey": "Clojure",
+      "value": 3
+  },
+
+  "DE": {
+      "fillKey": "No tweets",
+      "value": 0
+  },
+
+  "FL": {
+      "fillKey": "Scala",
+      "value": 9
+  },
+
+  "GA": {
+      "fillKey": "Scala",
+      "value": 122
+  },
+
+  "HI": {
+      "fillKey": "Clojure",
+      "value": 2
+  },
+
+  "ID": {
+      "fillKey": "No tweets",
+      "value": 0
+  },
+
+  "IL": {
+      "fillKey": "Scala",
+      "value": 24
+  },
+
+  "IN": {
+      "fillKey": "Scala",
+      "value": 4
+  },
+
+  "IA": {
+      "fillKey": "Clojure",
+      "value": 7
+  },
+
+  "KS": {
+      "fillKey": "No tweets",
+      "value": 0
+  },
+
+  "KY": {
+      "fillKey": "Clojure",
+      "value": 6
+  },
+
+  "LA": {
+      "fillKey": "Clojure",
+      "value": 10
+  },
+
+  "ME": {
+      "fillKey": "Scala",
+      "value": 2
+  },
+
+  "MD": {
+      "fillKey": "Scala",
+      "value": 6
+  },
+
+  "MA": {
+      "fillKey": "Scala",
+      "value": 55
+  },
+
+  "MI": {
+      "fillKey": "Scala",
+      "value": 6
+  },
+
+  "MN": {
+      "fillKey": "Clojure",
+      "value": 5
+  },
+
+  "MS": {
+      "fillKey": "Scala",
+      "value": 1
+  },
+
+  "MO": {
+      "fillKey": "Clojure",
+      "value": 18
+  },
+
+  "MT": {
+      "fillKey": "Scala",
+      "value": 4
+  },
+
+  "NE": {
+      "fillKey": "No tweets",
+      "value": 0
+  },
+
+  "NV": {
+      "fillKey": "No tweets",
+      "value": 0
+  },
+
+  "NH": {
+      "fillKey": "Scala",
+      "value": 3
+  },
+
+  "NJ": {
+      "fillKey": "Scala",
+      "value": 12
+  },
+
+  "NM": {
+      "fillKey": "Scala",
+      "value": 3
+  },
+
+  "NY": {
+      "fillKey": "Scala",
+      "value": 101
+  },
+
+  "NC": {
+      "fillKey": "Clojure",
+      "value": 29
+  },
+
+  "ND": {
+      "fillKey": "Scala",
+      "value": 8
+  },
+
+  "OH": {
+      "fillKey": "Clojure",
+      "value": 15
+  },
+
+  "OK": {
+      "fillKey": "Clojure",
+      "value": 3
+  },
+
+  "OR": {
+      "fillKey": "Clojure",
+      "value": 19
+  },
+
+  "PA": {
+      "fillKey": "Scala",
+      "value": 24
+  },
+
+  "RI": {
+      "fillKey": "No tweets",
+      "value": 0
+  },
+
+  "SC": {
+      "fillKey": "Clojure",
+      "value": 8
+  },
+
+  "SD": {
+      "fillKey": "No tweets",
+      "value": 0
+  },
+
+  "TN": {
+      "fillKey": "Clojure",
+      "value": 11
+  },
+
+  "TX": {
+      "fillKey": "Clojure",
+      "value": 47
+  },
+
+  "UT": {
+      "fillKey": "Scala",
+      "value": 4
+  },
+
+  "VT": {
+      "fillKey": "No tweets",
+      "value": 0
+  },
+
+  "VA": {
+      "fillKey": "Clojure",
+      "value": 8
+  },
+
+  "WA": {
+      "fillKey": "Clojure",
+      "value": 23
+  },
+
+  "WV": {
+      "fillKey": "Scala",
+      "value": 7
+  },
+
+  "WI": {
+      "fillKey": "Clojure",
+      "value": 3
+  },
+
+  "WY": {
+      "fillKey": "No tweets",
+      "value": 0
+  }
+}
+});
+
+//twitter_map.labels();
+twitter_map.legend();
+</script>
+
+<br />
+<br />
+<br />
+<br />
+
+<center><h3>C++ vs. C#</h3></center>
+
+<div class="map" id="us_map_programming_twitter_cpp_cs"></div>
+
+<script>
+var twitter_map = new Datamap({
+  scope: 'usa',
+  element: document.getElementById('us_map_programming_twitter_cpp_cs'),
+  geographyConfig: {
+    highlightBorderColor: '#fff',
+   popupTemplate: function(geography, data) {
+   	  if (data.fillKey == 'No tweets') return '<div class="hoverinfo"><strong>' + geography.properties.name + '</strong> <br />No tweets available'
+   	  else return '<div class="hoverinfo"><strong>' + geography.properties.name + '</strong> <br />' + data.value + ' tweets about ' + data.fillKey + '</div>'
+    },
+    highlightBorderWidth: 3
+  },
+
+  fills: {
+  'C#': '#1F77B4',
+  'C++': '#D62834',
+  'No tweets': '#7F7F7F',
+  defaultFill: '#7F7F7F'
+},
+data:{
+  "AL": {
+      "fillKey": "C#",
+      "value": 7
+  },
+
+  "AK": {
+      "fillKey": "No tweets",
+      "value": 0
+  },
+
+  "AZ": {
+      "fillKey": "C#",
+      "value": 5
+  },
+
+  "AR": {
+      "fillKey": "No tweets",
+      "value": 0
+  },
+
+  "CA": {
+      "fillKey": "C++",
+      "value": 121
+  },
+
+  "CO": {
+      "fillKey": "C++",
+      "value": 14
+  },
+
+  "CT": {
+      "fillKey": "C#",
+      "value": 3
+  },
+
+  "DE": {
+      "fillKey": "No tweets",
+      "value": 0
+  },
+
+  "FL": {
+      "fillKey": "C#",
+      "value": 29
+  },
+
+  "GA": {
+      "fillKey": "C#",
+      "value": 305
+  },
+
+  "HI": {
+      "fillKey": "No tweets",
+      "value": 0
+  },
+
+  "ID": {
+      "fillKey": "C#",
+      "value": 2
+  },
+
+  "IL": {
+      "fillKey": "C#",
+      "value": 14
+  },
+
+  "IN": {
+      "fillKey": "C#",
+      "value": 3
+  },
+
+  "IA": {
+      "fillKey": "C#",
+      "value": 4
+  },
+
+  "KS": {
+      "fillKey": "No tweets",
+      "value": 0
+  },
+
+  "KY": {
+      "fillKey": "C++",
+      "value": 2
+  },
+
+  "LA": {
+      "fillKey": "C++",
+      "value": 2
+  },
+
+  "ME": {
+      "fillKey": "C#",
+      "value": 5
+  },
+
+  "MD": {
+      "fillKey": "C#",
+      "value": 3
+  },
+
+  "MA": {
+      "fillKey": "C#",
+      "value": 33
+  },
+
+  "MI": {
+      "fillKey": "C#",
+      "value": 7
+  },
+
+  "MN": {
+      "fillKey": "C#",
+      "value": 7
+  },
+
+  "MS": {
+      "fillKey": "No tweets",
+      "value": 0
+  },
+
+  "MO": {
+      "fillKey": "C#",
+      "value": 10
+  },
+
+  "MT": {
+      "fillKey": "No tweets",
+      "value": 0
+  },
+
+  "NE": {
+      "fillKey": "No tweets",
+      "value": 0
+  },
+
+  "NV": {
+      "fillKey": "No tweets",
+      "value": 0
+  },
+
+  "NH": {
+      "fillKey": "No tweets",
+      "value": 0
+  },
+
+  "NJ": {
+      "fillKey": "C#",
+      "value": 14
+  },
+
+  "NM": {
+      "fillKey": "No tweets",
+      "value": 0
+  },
+
+  "NY": {
+      "fillKey": "C#",
+      "value": 201
+  },
+
+  "NC": {
+      "fillKey": "C#",
+      "value": 15
+  },
+
+  "ND": {
+      "fillKey": "C++",
+      "value": 3
+  },
+
+  "OH": {
+      "fillKey": "C#",
+      "value": 11
+  },
+
+  "OK": {
+      "fillKey": "C#",
+      "value": 12
+  },
+
+  "OR": {
+      "fillKey": "C#",
+      "value": 8
+  },
+
+  "PA": {
+      "fillKey": "C#",
+      "value": 15
+  },
+
+  "RI": {
+      "fillKey": "C++",
+      "value": 2
+  },
+
+  "SC": {
+      "fillKey": "C#",
+      "value": 85
+  },
+
+  "SD": {
+      "fillKey": "No tweets",
+      "value": 0
+  },
+
+  "TN": {
+      "fillKey": "C#",
+      "value": 17
+  },
+
+  "TX": {
+      "fillKey": "C#",
+      "value": 112
+  },
+
+  "UT": {
+      "fillKey": "C#",
+      "value": 21
+  },
+
+  "VT": {
+      "fillKey": "No tweets",
+      "value": 0
+  },
+
+  "VA": {
+      "fillKey": "C#",
+      "value": 6
+  },
+
+  "WA": {
+      "fillKey": "C#",
+      "value": 15
+  },
+
+  "WV": {
+      "fillKey": "No tweets",
+      "value": 0
+  },
+
+  "WI": {
+      "fillKey": "C#",
+      "value": 2
+  },
+
+  "WY": {
+      "fillKey": "No tweets",
+      "value": 0
+  }
+}
+});
+
+//twitter_map.labels();
+twitter_map.legend();
+</script>
+
+<br />
+<br />
+<br />
+<br />
+
+<center><h3>Python vs. JavaScript</h3></center>
+
+<div class="map" id="us_map_programming_twitter_python_javascript"></div>
+
+<script>
+var twitter_map = new Datamap({
+  scope: 'usa',
+  element: document.getElementById('us_map_programming_twitter_python_javascript'),
+  geographyConfig: {
+    highlightBorderColor: '#fff',
+   popupTemplate: function(geography, data) {
+   	  if (data.fillKey == 'No tweets') return '<div class="hoverinfo"><strong>' + geography.properties.name + '</strong> <br />No tweets available'
+   	  else return '<div class="hoverinfo"><strong>' + geography.properties.name + '</strong> <br />' + data.value + ' tweets about ' + data.fillKey + '</div>'
+    },
+    highlightBorderWidth: 3
+  },
+
+  fills: {
+  'Python': '#1F77B4',
+  'JavaScript': '#D62834',
+  'No tweets': '#7F7F7F',
+  defaultFill: '#7F7F7F'
+},
+data:{
+  "AL": {
+      "fillKey": "JavaScript",
+      "value": 88
+  },
+
+  "AK": {
+      "fillKey": "Python",
+      "value": 6
+  },
+
+  "AZ": {
+      "fillKey": "JavaScript",
+      "value": 94
+  },
+
+  "AR": {
+      "fillKey": "Python",
+      "value": 4
+  },
+
+  "CA": {
+      "fillKey": "JavaScript",
+      "value": 1588
+  },
+
+  "CO": {
+      "fillKey": "JavaScript",
+      "value": 97
+  },
+
+  "CT": {
+      "fillKey": "JavaScript",
+      "value": 71
+  },
+
+  "DE": {
+      "fillKey": "JavaScript",
+      "value": 4
+  },
+
+  "FL": {
+      "fillKey": "JavaScript",
+      "value": 548
+  },
+
+  "GA": {
+      "fillKey": "JavaScript",
+      "value": 24788
+  },
+
+  "HI": {
+      "fillKey": "JavaScript",
+      "value": 2
+  },
+
+  "ID": {
+      "fillKey": "Python",
+      "value": 19
+  },
+
+  "IL": {
+      "fillKey": "JavaScript",
+      "value": 278
+  },
+
+  "IN": {
+      "fillKey": "Python",
+      "value": 44
+  },
+
+  "IA": {
+      "fillKey": "JavaScript",
+      "value": 26
+  },
+
+  "KS": {
+      "fillKey": "JavaScript",
+      "value": 8
+  },
+
+  "KY": {
+      "fillKey": "JavaScript",
+      "value": 24
+  },
+
+  "LA": {
+      "fillKey": "JavaScript",
+      "value": 9
+  },
+
+  "ME": {
+      "fillKey": "JavaScript",
+      "value": 20
+  },
+
+  "MD": {
+      "fillKey": "JavaScript",
+      "value": 52
+  },
+
+  "MA": {
+      "fillKey": "Python",
+      "value": 159
+  },
+
+  "MI": {
+      "fillKey": "JavaScript",
+      "value": 78
+  },
+
+  "MN": {
+      "fillKey": "JavaScript",
+      "value": 57
+  },
+
+  "MS": {
+      "fillKey": "JavaScript",
+      "value": 16
+  },
+
+  "MO": {
+      "fillKey": "JavaScript",
+      "value": 79
+  },
+
+  "MT": {
+      "fillKey": "JavaScript",
+      "value": 4
+  },
+
+  "NE": {
+      "fillKey": "JavaScript",
+      "value": 21
+  },
+
+  "NV": {
+      "fillKey": "JavaScript",
+      "value": 31
+  },
+
+  "NH": {
+      "fillKey": "JavaScript",
+      "value": 36
+  },
+
+  "NJ": {
+      "fillKey": "JavaScript",
+      "value": 127
+  },
+
+  "NM": {
+      "fillKey": "JavaScript",
+      "value": 6
+  },
+
+  "NY": {
+      "fillKey": "JavaScript",
+      "value": 696
+  },
+
+  "NC": {
+      "fillKey": "JavaScript",
+      "value": 149
+  },
+
+  "ND": {
+      "fillKey": "JavaScript",
+      "value": 7
+  },
+
+  "OH": {
+      "fillKey": "JavaScript",
+      "value": 228
+  },
+
+  "OK": {
+      "fillKey": "JavaScript",
+      "value": 478
+  },
+
+  "OR": {
+      "fillKey": "JavaScript",
+      "value": 62
+  },
+
+  "PA": {
+      "fillKey": "JavaScript",
+      "value": 155
+  },
+
+  "RI": {
+      "fillKey": "JavaScript",
+      "value": 5
+  },
+
+  "SC": {
+      "fillKey": "JavaScript",
+      "value": 48
+  },
+
+  "SD": {
+      "fillKey": "No tweets",
+      "value": 0
+  },
+
+  "TN": {
+      "fillKey": "JavaScript",
+      "value": 123
+  },
+
+  "TX": {
+      "fillKey": "JavaScript",
+      "value": 830
+  },
+
+  "UT": {
+      "fillKey": "JavaScript",
+      "value": 84
+  },
+
+  "VT": {
+      "fillKey": "JavaScript",
+      "value": 3
+  },
+
+  "VA": {
+      "fillKey": "JavaScript",
+      "value": 128
+  },
+
+  "WA": {
+      "fillKey": "JavaScript",
+      "value": 150
+  },
+
+  "WV": {
+      "fillKey": "Python",
+      "value": 28
+  },
+
+  "WI": {
+      "fillKey": "JavaScript",
+      "value": 39
+  },
+
+  "WY": {
+      "fillKey": "No tweets",
+      "value": 0
+  }
+}
+});
+
+//twitter_map.labels();
+twitter_map.legend();
+</script>
+
+<br />
+<br />
+<br />
+<br />
+
+<center><h3>Python vs. Ruby</h3></center>
+
+<div class="map" id="us_map_programming_twitter_python_ruby"></div>
+
+<script>
+var twitter_map = new Datamap({
+  scope: 'usa',
+  element: document.getElementById('us_map_programming_twitter_python_ruby'),
+  geographyConfig: {
+    highlightBorderColor: '#fff',
+   popupTemplate: function(geography, data) {
+   	  if (data.fillKey == 'No tweets') return '<div class="hoverinfo"><strong>' + geography.properties.name + '</strong> <br />No tweets available'
+   	  else return '<div class="hoverinfo"><strong>' + geography.properties.name + '</strong> <br />' + data.value + ' tweets about ' + data.fillKey + '</div>'
+    },
+    highlightBorderWidth: 3
+  },
+
+  fills: {
+  'Python': '#1F77B4',
+  'Ruby': '#D62834',
+  'No tweets': '#7F7F7F',
+  defaultFill: '#7F7F7F'
+},
+data:{
+  "AL": {
+      "fillKey": "Python",
+      "value": 39
+  },
+
+  "AK": {
+      "fillKey": "Python",
+      "value": 6
+  },
+
+  "AZ": {
+      "fillKey": "Python",
+      "value": 28
+  },
+
+  "AR": {
+      "fillKey": "Ruby",
+      "value": 10
+  },
+
+  "CA": {
+      "fillKey": "Python",
+      "value": 543
+  },
+
+  "CO": {
+      "fillKey": "Python",
+      "value": 43
+  },
+
+  "CT": {
+      "fillKey": "Ruby",
+      "value": 29
+  },
+
+  "DE": {
+      "fillKey": "Python",
+      "value": 2
+  },
+
+  "FL": {
+      "fillKey": "Python",
+      "value": 90
+  },
+
+  "GA": {
+      "fillKey": "Python",
+      "value": 751
+  },
+
+  "HI": {
+      "fillKey": "Ruby",
+      "value": 3
+  },
+
+  "ID": {
+      "fillKey": "Python",
+      "value": 19
+  },
+
+  "IL": {
+      "fillKey": "Python",
+      "value": 130
+  },
+
+  "IN": {
+      "fillKey": "Python",
+      "value": 44
+  },
+
+  "IA": {
+      "fillKey": "Ruby",
+      "value": 17
+  },
+
+  "KS": {
+      "fillKey": "Python",
+      "value": 7
+  },
+
+  "KY": {
+      "fillKey": "Ruby",
+      "value": 8
+  },
+
+  "LA": {
+      "fillKey": "Python",
+      "value": 8
+  },
+
+  "ME": {
+      "fillKey": "Python",
+      "value": 3
+  },
+
+  "MD": {
+      "fillKey": "Python",
+      "value": 35
+  },
+
+  "MA": {
+      "fillKey": "Python",
+      "value": 159
+  },
+
+  "MI": {
+      "fillKey": "Python",
+      "value": 56
+  },
+
+  "MN": {
+      "fillKey": "Python",
+      "value": 33
+  },
+
+  "MS": {
+      "fillKey": "Python",
+      "value": 2
+  },
+
+  "MO": {
+      "fillKey": "Python",
+      "value": 38
+  },
+
+  "MT": {
+      "fillKey": "No tweets",
+      "value": 0
+  },
+
+  "NE": {
+      "fillKey": "Ruby",
+      "value": 18
+  },
+
+  "NV": {
+      "fillKey": "Python",
+      "value": 13
+  },
+
+  "NH": {
+      "fillKey": "Python",
+      "value": 4
+  },
+
+  "NJ": {
+      "fillKey": "Python",
+      "value": 35
+  },
+
+  "NM": {
+      "fillKey": "Ruby",
+      "value": 7
+  },
+
+  "NY": {
+      "fillKey": "Python",
+      "value": 461
+  },
+
+  "NC": {
+      "fillKey": "Python",
+      "value": 90
+  },
+
+  "ND": {
+      "fillKey": "Python",
+      "value": 7
+  },
+
+  "OH": {
+      "fillKey": "Ruby",
+      "value": 221
+  },
+
+  "OK": {
+      "fillKey": "Python",
+      "value": 6
+  },
+
+  "OR": {
+      "fillKey": "Ruby",
+      "value": 58
+  },
+
+  "PA": {
+      "fillKey": "Python",
+      "value": 105
+  },
+
+  "RI": {
+      "fillKey": "Ruby",
+      "value": 6
+  },
+
+  "SC": {
+      "fillKey": "Ruby",
+      "value": 16
+  },
+
+  "SD": {
+      "fillKey": "Ruby",
+      "value": 4
+  },
+
+  "TN": {
+      "fillKey": "Python",
+      "value": 56
+  },
+
+  "TX": {
+      "fillKey": "Python",
+      "value": 214
+  },
+
+  "UT": {
+      "fillKey": "Python",
+      "value": 23
+  },
+
+  "VT": {
+      "fillKey": "No tweets",
+      "value": 0
+  },
+
+  "VA": {
+      "fillKey": "Python",
+      "value": 45
+  },
+
+  "WA": {
+      "fillKey": "Python",
+      "value": 135
+  },
+
+  "WV": {
+      "fillKey": "Python",
+      "value": 28
+  },
+
+  "WI": {
+      "fillKey": "Ruby",
+      "value": 20
+  },
+
+  "WY": {
+      "fillKey": "No tweets",
+      "value": 0
+  }
+}
+});
+
+//twitter_map.labels();
+twitter_map.legend();
+</script>
+
+<br />
+<br />
+<br />
+<br />
+
+<center><h3>Python vs. Perl</h3></center>
+
+<div class="map" id="us_map_programming_twitter_python_perl"></div>
+
+<script>
+var twitter_map = new Datamap({
+  scope: 'usa',
+  element: document.getElementById('us_map_programming_twitter_python_perl'),
+  geographyConfig: {
+    highlightBorderColor: '#fff',
+   popupTemplate: function(geography, data) {
+   	  if (data.fillKey == 'No tweets') return '<div class="hoverinfo"><strong>' + geography.properties.name + '</strong> <br />No tweets available'
+   	  else return '<div class="hoverinfo"><strong>' + geography.properties.name + '</strong> <br />' + data.value + ' tweets about ' + data.fillKey + '</div>'
+    },
+    highlightBorderWidth: 3
+  },
+
+  fills: {
+  'Python': '#1F77B4',
+  'Perl': '#D62834',
+  'No tweets': '#7F7F7F',
+  defaultFill: '#7F7F7F'
+},
+data:{
+  "AL": {
+      "fillKey": "Python",
+      "value": 39
+  },
+
+  "AK": {
+      "fillKey": "Python",
+      "value": 6
+  },
+
+  "AZ": {
+      "fillKey": "Python",
+      "value": 28
+  },
+
+  "AR": {
+      "fillKey": "Python",
+      "value": 4
+  },
+
+  "CA": {
+      "fillKey": "Python",
+      "value": 543
+  },
+
+  "CO": {
+      "fillKey": "Python",
+      "value": 43
+  },
+
+  "CT": {
+      "fillKey": "Python",
+      "value": 21
+  },
+
+  "DE": {
+      "fillKey": "Python",
+      "value": 2
+  },
+
+  "FL": {
+      "fillKey": "Python",
+      "value": 90
+  },
+
+  "GA": {
+      "fillKey": "Python",
+      "value": 751
+  },
+
+  "HI": {
+      "fillKey": "Python",
+      "value": 2
+  },
+
+  "ID": {
+      "fillKey": "Python",
+      "value": 19
+  },
+
+  "IL": {
+      "fillKey": "Python",
+      "value": 130
+  },
+
+  "IN": {
+      "fillKey": "Python",
+      "value": 44
+  },
+
+  "IA": {
+      "fillKey": "Python",
+      "value": 11
+  },
+
+  "KS": {
+      "fillKey": "Python",
+      "value": 7
+  },
+
+  "KY": {
+      "fillKey": "Python",
+      "value": 3
+  },
+
+  "LA": {
+      "fillKey": "Python",
+      "value": 8
+  },
+
+  "ME": {
+      "fillKey": "Python",
+      "value": 3
+  },
+
+  "MD": {
+      "fillKey": "Python",
+      "value": 35
+  },
+
+  "MA": {
+      "fillKey": "Python",
+      "value": 159
+  },
+
+  "MI": {
+      "fillKey": "Python",
+      "value": 56
+  },
+
+  "MN": {
+      "fillKey": "Python",
+      "value": 33
+  },
+
+  "MS": {
+      "fillKey": "Python",
+      "value": 2
+  },
+
+  "MO": {
+      "fillKey": "Python",
+      "value": 38
+  },
+
+  "MT": {
+      "fillKey": "No tweets",
+      "value": 0
+  },
+
+  "NE": {
+      "fillKey": "Python",
+      "value": 5
+  },
+
+  "NV": {
+      "fillKey": "Python",
+      "value": 13
+  },
+
+  "NH": {
+      "fillKey": "Python",
+      "value": 4
+  },
+
+  "NJ": {
+      "fillKey": "Python",
+      "value": 35
+  },
+
+  "NM": {
+      "fillKey": "Python",
+      "value": 3
+  },
+
+  "NY": {
+      "fillKey": "Python",
+      "value": 461
+  },
+
+  "NC": {
+      "fillKey": "Python",
+      "value": 90
+  },
+
+  "ND": {
+      "fillKey": "Python",
+      "value": 7
+  },
+
+  "OH": {
+      "fillKey": "Python",
+      "value": 41
+  },
+
+  "OK": {
+      "fillKey": "Python",
+      "value": 6
+  },
+
+  "OR": {
+      "fillKey": "Python",
+      "value": 36
+  },
+
+  "PA": {
+      "fillKey": "Python",
+      "value": 105
+  },
+
+  "RI": {
+      "fillKey": "Python",
+      "value": 2
+  },
+
+  "SC": {
+      "fillKey": "Python",
+      "value": 9
+  },
+
+  "SD": {
+      "fillKey": "No tweets",
+      "value": 0
+  },
+
+  "TN": {
+      "fillKey": "Python",
+      "value": 56
+  },
+
+  "TX": {
+      "fillKey": "Python",
+      "value": 214
+  },
+
+  "UT": {
+      "fillKey": "Python",
+      "value": 23
+  },
+
+  "VT": {
+      "fillKey": "No tweets",
+      "value": 0
+  },
+
+  "VA": {
+      "fillKey": "Python",
+      "value": 45
+  },
+
+  "WA": {
+      "fillKey": "Python",
+      "value": 135
+  },
+
+  "WV": {
+      "fillKey": "Python",
+      "value": 28
+  },
+
+  "WI": {
+      "fillKey": "Python",
+      "value": 17
+  },
+
+  "WY": {
+      "fillKey": "No tweets",
+      "value": 0
+  }
+}
+});
+
+//twitter_map.labels();
+twitter_map.legend();
+</script>
+
+<br />
+<br />
+<br />
+<br />
+
+<center><h3>Python vs. PHP</h3></center>
+
+<div class="map" id="us_map_programming_twitter_python_php"></div>
+
+<script>
+var twitter_map = new Datamap({
+  scope: 'usa',
+  element: document.getElementById('us_map_programming_twitter_python_php'),
+  geographyConfig: {
+    highlightBorderColor: '#fff',
+   popupTemplate: function(geography, data) {
+   	  if (data.fillKey == 'No tweets') return '<div class="hoverinfo"><strong>' + geography.properties.name + '</strong> <br />No tweets available'
+   	  else return '<div class="hoverinfo"><strong>' + geography.properties.name + '</strong> <br />' + data.value + ' tweets about ' + data.fillKey + '</div>'
+    },
+    highlightBorderWidth: 3
+  },
+
+  fills: {
+  'Python': '#1F77B4',
+  'PHP': '#D62834',
+  'No tweets': '#7F7F7F',
+  defaultFill: '#7F7F7F'
+},
+data:{
+  "AL": {
+      "fillKey": "PHP",
+      "value": 45
+  },
+
+  "AK": {
+      "fillKey": "Python",
+      "value": 6
+  },
+
+  "AZ": {
+      "fillKey": "Python",
+      "value": 28
+  },
+
+  "AR": {
+      "fillKey": "Python",
+      "value": 4
+  },
+
+  "CA": {
+      "fillKey": "Python",
+      "value": 543
+  },
+
+  "CO": {
+      "fillKey": "Python",
+      "value": 43
+  },
+
+  "CT": {
+      "fillKey": "PHP",
+      "value": 54
+  },
+
+  "DE": {
+      "fillKey": "Python",
+      "value": 2
+  },
+
+  "FL": {
+      "fillKey": "PHP",
+      "value": 240
+  },
+
+  "GA": {
+      "fillKey": "PHP",
+      "value": 2798
+  },
+
+  "HI": {
+      "fillKey": "PHP",
+      "value": 3
+  },
+
+  "ID": {
+      "fillKey": "Python",
+      "value": 19
+  },
+
+  "IL": {
+      "fillKey": "PHP",
+      "value": 153
+  },
+
+  "IN": {
+      "fillKey": "Python",
+      "value": 44
+  },
+
+  "IA": {
+      "fillKey": "PHP",
+      "value": 21
+  },
+
+  "KS": {
+      "fillKey": "PHP",
+      "value": 15
+  },
+
+  "KY": {
+      "fillKey": "PHP",
+      "value": 11
+  },
+
+  "LA": {
+      "fillKey": "PHP",
+      "value": 12
+  },
+
+  "ME": {
+      "fillKey": "PHP",
+      "value": 7
+  },
+
+  "MD": {
+      "fillKey": "PHP",
+      "value": 37
+  },
+
+  "MA": {
+      "fillKey": "Python",
+      "value": 159
+  },
+
+  "MI": {
+      "fillKey": "PHP",
+      "value": 225
+  },
+
+  "MN": {
+      "fillKey": "PHP",
+      "value": 56
+  },
+
+  "MS": {
+      "fillKey": "PHP",
+      "value": 4
+  },
+
+  "MO": {
+      "fillKey": "Python",
+      "value": 38
+  },
+
+  "MT": {
+      "fillKey": "PHP",
+      "value": 1
+  },
+
+  "NE": {
+      "fillKey": "PHP",
+      "value": 13
+  },
+
+  "NV": {
+      "fillKey": "Python",
+      "value": 13
+  },
+
+  "NH": {
+      "fillKey": "PHP",
+      "value": 16
+  },
+
+  "NJ": {
+      "fillKey": "PHP",
+      "value": 98
+  },
+
+  "NM": {
+      "fillKey": "PHP",
+      "value": 4
+  },
+
+  "NY": {
+      "fillKey": "Python",
+      "value": 461
+  },
+
+  "NC": {
+      "fillKey": "Python",
+      "value": 90
+  },
+
+  "ND": {
+      "fillKey": "Python",
+      "value": 7
+  },
+
+  "OH": {
+      "fillKey": "PHP",
+      "value": 95
+  },
+
+  "OK": {
+      "fillKey": "PHP",
+      "value": 13
+  },
+
+  "OR": {
+      "fillKey": "Python",
+      "value": 36
+  },
+
+  "PA": {
+      "fillKey": "Python",
+      "value": 105
+  },
+
+  "RI": {
+      "fillKey": "PHP",
+      "value": 3
+  },
+
+  "SC": {
+      "fillKey": "PHP",
+      "value": 17
+  },
+
+  "SD": {
+      "fillKey": "PHP",
+      "value": 27
+  },
+
+  "TN": {
+      "fillKey": "PHP",
+      "value": 60
+  },
+
+  "TX": {
+      "fillKey": "Python",
+      "value": 214
+  },
+
+  "UT": {
+      "fillKey": "PHP",
+      "value": 27
+  },
+
+  "VT": {
+      "fillKey": "PHP",
+      "value": 4
+  },
+
+  "VA": {
+      "fillKey": "Python",
+      "value": 45
+  },
+
+  "WA": {
+      "fillKey": "Python",
+      "value": 135
+  },
+
+  "WV": {
+      "fillKey": "Python",
+      "value": 28
+  },
+
+  "WI": {
+      "fillKey": "PHP",
+      "value": 25
+  },
+
+  "WY": {
+      "fillKey": "Python",
+      "value": 1
+  }
+}
+});
+
+//twitter_map.labels();
+twitter_map.legend();
+</script>
+
+<br />
+<br />
+<br />
+<br />
+
+<center><h3>ASP vs. PHP</h3></center>
+
+<div class="map" id="us_map_programming_twitter_asp_php"></div>
+
+<script>
+var twitter_map = new Datamap({
+  scope: 'usa',
+  element: document.getElementById('us_map_programming_twitter_asp_php'),
+  geographyConfig: {
+    highlightBorderColor: '#fff',
+   popupTemplate: function(geography, data) {
+   	  if (data.fillKey == 'No tweets') return '<div class="hoverinfo"><strong>' + geography.properties.name + '</strong> <br />No tweets available'
+   	  else return '<div class="hoverinfo"><strong>' + geography.properties.name + '</strong> <br />' + data.value + ' tweets about ' + data.fillKey + '</div>'
+    },
+    highlightBorderWidth: 3
+  },
+
+  fills: {
+  'ASP': '#1F77B4',
+  'PHP': '#D62834',
+  'No tweets': '#7F7F7F',
+  defaultFill: '#7F7F7F'
+},
+data:{
+  "AL": {
+      "fillKey": "PHP",
+      "value": 45
+  },
+
+  "AK": {
+      "fillKey": "No tweets",
+      "value": 0
+  },
+
+  "AZ": {
+      "fillKey": "PHP",
+      "value": 24
+  },
+
+  "AR": {
+      "fillKey": "PHP",
+      "value": 1
+  },
+
+  "CA": {
+      "fillKey": "PHP",
+      "value": 480
+  },
+
+  "CO": {
+      "fillKey": "PHP",
+      "value": 29
+  },
+
+  "CT": {
+      "fillKey": "PHP",
+      "value": 54
+  },
+
+  "DE": {
+      "fillKey": "No tweets",
+      "value": 0
+  },
+
+  "FL": {
+      "fillKey": "PHP",
+      "value": 240
+  },
+
+  "GA": {
+      "fillKey": "PHP",
+      "value": 2798
+  },
+
+  "HI": {
+      "fillKey": "ASP",
+      "value": 4
+  },
+
+  "ID": {
+      "fillKey": "PHP",
+      "value": 5
+  },
+
+  "IL": {
+      "fillKey": "PHP",
+      "value": 153
+  },
+
+  "IN": {
+      "fillKey": "PHP",
+      "value": 20
+  },
+
+  "IA": {
+      "fillKey": "PHP",
+      "value": 21
+  },
+
+  "KS": {
+      "fillKey": "PHP",
+      "value": 15
+  },
+
+  "KY": {
+      "fillKey": "PHP",
+      "value": 11
+  },
+
+  "LA": {
+      "fillKey": "PHP",
+      "value": 12
+  },
+
+  "ME": {
+      "fillKey": "PHP",
+      "value": 7
+  },
+
+  "MD": {
+      "fillKey": "PHP",
+      "value": 37
+  },
+
+  "MA": {
+      "fillKey": "PHP",
+      "value": 82
+  },
+
+  "MI": {
+      "fillKey": "PHP",
+      "value": 225
+  },
+
+  "MN": {
+      "fillKey": "PHP",
+      "value": 56
+  },
+
+  "MS": {
+      "fillKey": "PHP",
+      "value": 4
+  },
+
+  "MO": {
+      "fillKey": "PHP",
+      "value": 13
+  },
+
+  "MT": {
+      "fillKey": "PHP",
+      "value": 1
+  },
+
+  "NE": {
+      "fillKey": "PHP",
+      "value": 13
+  },
+
+  "NV": {
+      "fillKey": "PHP",
+      "value": 12
+  },
+
+  "NH": {
+      "fillKey": "PHP",
+      "value": 16
+  },
+
+  "NJ": {
+      "fillKey": "PHP",
+      "value": 98
+  },
+
+  "NM": {
+      "fillKey": "PHP",
+      "value": 4
+  },
+
+  "NY": {
+      "fillKey": "PHP",
+      "value": 308
+  },
+
+  "NC": {
+      "fillKey": "PHP",
+      "value": 73
+  },
+
+  "ND": {
+      "fillKey": "PHP",
+      "value": 3
+  },
+
+  "OH": {
+      "fillKey": "PHP",
+      "value": 95
+  },
+
+  "OK": {
+      "fillKey": "PHP",
+      "value": 13
+  },
+
+  "OR": {
+      "fillKey": "PHP",
+      "value": 28
+  },
+
+  "PA": {
+      "fillKey": "PHP",
+      "value": 49
+  },
+
+  "RI": {
+      "fillKey": "PHP",
+      "value": 3
+  },
+
+  "SC": {
+      "fillKey": "PHP",
+      "value": 17
+  },
+
+  "SD": {
+      "fillKey": "PHP",
+      "value": 27
+  },
+
+  "TN": {
+      "fillKey": "PHP",
+      "value": 60
+  },
+
+  "TX": {
+      "fillKey": "PHP",
+      "value": 201
+  },
+
+  "UT": {
+      "fillKey": "PHP",
+      "value": 27
+  },
+
+  "VT": {
+      "fillKey": "PHP",
+      "value": 4
+  },
+
+  "VA": {
+      "fillKey": "PHP",
+      "value": 43
+  },
+
+  "WA": {
+      "fillKey": "PHP",
+      "value": 95
+  },
+
+  "WV": {
+      "fillKey": "PHP",
+      "value": 4
+  },
+
+  "WI": {
+      "fillKey": "PHP",
+      "value": 25
+  },
+
+  "WY": {
+      "fillKey": "No tweets",
+      "value": 0
+  }
+}
+});
+
+//twitter_map.labels();
+twitter_map.legend();
+</script>
+
+<br />
+<br />
+<br />
+<br />
+
+<center><h3>Ruby vs. PHP</h3></center>
+
+<div class="map" id="us_map_programming_twitter_ruby_php"></div>
+
+<script>
+var twitter_map = new Datamap({
+  scope: 'usa',
+  element: document.getElementById('us_map_programming_twitter_ruby_php'),
+  geographyConfig: {
+    highlightBorderColor: '#fff',
+   popupTemplate: function(geography, data) {
+   	  if (data.fillKey == 'No tweets') return '<div class="hoverinfo"><strong>' + geography.properties.name + '</strong> <br />No tweets available'
+   	  else return '<div class="hoverinfo"><strong>' + geography.properties.name + '</strong> <br />' + data.value + ' tweets about ' + data.fillKey + '</div>'
+    },
+    highlightBorderWidth: 3
+  },
+
+  fills: {
+  'Ruby': '#1F77B4',
+  'PHP': '#D62834',
+  'No tweets': '#7F7F7F',
+  defaultFill: '#7F7F7F'
+},
+data:{
+  "AL": {
+      "fillKey": "PHP",
+      "value": 45
+  },
+
+  "AK": {
+      "fillKey": "No tweets",
+      "value": 0
+  },
+
+  "AZ": {
+      "fillKey": "PHP",
+      "value": 24
+  },
+
+  "AR": {
+      "fillKey": "Ruby",
+      "value": 10
+  },
+
+  "CA": {
+      "fillKey": "Ruby",
+      "value": 507
+  },
+
+  "CO": {
+      "fillKey": "Ruby",
+      "value": 41
+  },
+
+  "CT": {
+      "fillKey": "PHP",
+      "value": 54
+  },
+
+  "DE": {
+      "fillKey": "Ruby",
+      "value": 2
+  },
+
+  "FL": {
+      "fillKey": "PHP",
+      "value": 240
+  },
+
+  "GA": {
+      "fillKey": "PHP",
+      "value": 2798
+  },
+
+  "HI": {
+      "fillKey": "PHP",
+      "value": 3
+  },
+
+  "ID": {
+      "fillKey": "PHP",
+      "value": 5
+  },
+
+  "IL": {
+      "fillKey": "PHP",
+      "value": 153
+  },
+
+  "IN": {
+      "fillKey": "PHP",
+      "value": 20
+  },
+
+  "IA": {
+      "fillKey": "PHP",
+      "value": 21
+  },
+
+  "KS": {
+      "fillKey": "PHP",
+      "value": 15
+  },
+
+  "KY": {
+      "fillKey": "PHP",
+      "value": 11
+  },
+
+  "LA": {
+      "fillKey": "PHP",
+      "value": 12
+  },
+
+  "ME": {
+      "fillKey": "PHP",
+      "value": 7
+  },
+
+  "MD": {
+      "fillKey": "PHP",
+      "value": 37
+  },
+
+  "MA": {
+      "fillKey": "PHP",
+      "value": 82
+  },
+
+  "MI": {
+      "fillKey": "PHP",
+      "value": 225
+  },
+
+  "MN": {
+      "fillKey": "PHP",
+      "value": 56
+  },
+
+  "MS": {
+      "fillKey": "PHP",
+      "value": 4
+  },
+
+  "MO": {
+      "fillKey": "Ruby",
+      "value": 24
+  },
+
+  "MT": {
+      "fillKey": "No tweets",
+      "value": 0
+  },
+
+  "NE": {
+      "fillKey": "Ruby",
+      "value": 18
+  },
+
+  "NV": {
+      "fillKey": "PHP",
+      "value": 12
+  },
+
+  "NH": {
+      "fillKey": "PHP",
+      "value": 16
+  },
+
+  "NJ": {
+      "fillKey": "PHP",
+      "value": 98
+  },
+
+  "NM": {
+      "fillKey": "Ruby",
+      "value": 7
+  },
+
+  "NY": {
+      "fillKey": "PHP",
+      "value": 308
+  },
+
+  "NC": {
+      "fillKey": "PHP",
+      "value": 73
+  },
+
+  "ND": {
+      "fillKey": "PHP",
+      "value": 3
+  },
+
+  "OH": {
+      "fillKey": "Ruby",
+      "value": 221
+  },
+
+  "OK": {
+      "fillKey": "PHP",
+      "value": 13
+  },
+
+  "OR": {
+      "fillKey": "Ruby",
+      "value": 58
+  },
+
+  "PA": {
+      "fillKey": "Ruby",
+      "value": 55
+  },
+
+  "RI": {
+      "fillKey": "Ruby",
+      "value": 6
+  },
+
+  "SC": {
+      "fillKey": "PHP",
+      "value": 17
+  },
+
+  "SD": {
+      "fillKey": "PHP",
+      "value": 27
+  },
+
+  "TN": {
+      "fillKey": "PHP",
+      "value": 60
+  },
+
+  "TX": {
+      "fillKey": "PHP",
+      "value": 201
+  },
+
+  "UT": {
+      "fillKey": "PHP",
+      "value": 27
+  },
+
+  "VT": {
+      "fillKey": "PHP",
+      "value": 4
+  },
+
+  "VA": {
+      "fillKey": "PHP",
+      "value": 43
+  },
+
+  "WA": {
+      "fillKey": "PHP",
+      "value": 95
+  },
+
+  "WV": {
+      "fillKey": "Ruby",
+      "value": 5
+  },
+
+  "WI": {
+      "fillKey": "PHP",
+      "value": 25
+  },
+
+  "WY": {
+      "fillKey": "No tweets",
+      "value": 0
+  }
+}
+});
+
+//twitter_map.labels();
+twitter_map.legend();
+</script>
