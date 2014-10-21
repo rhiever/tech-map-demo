@@ -1,0 +1,863 @@
+<!DOCTYPE html>
+<meta charset="utf-8">
+
+<style>
+        .map { position: relative; margin: 0 auto; width: 1000px; height: 500px;}
+</style>
+
+<title>The landscape of programming jobs in the U.S.</title>
+
+<script src="http://d3js.org/d3.v3.min.js"></script>
+<script src="http://d3js.org/topojson.v1.min.js"></script>
+<script src="http://datamaps.github.io/scripts/datamaps.usa.min.js"></script>
+
+<center><h1>Want a database administrator job in the U.S.?<br />List these terms in your resume</h1></center>
+
+<br />
+
+<center><h3>The most common database system listed in job ads in each U.S. state</h3></center>
+
+<div class="map" id="us_map_database_demand"></div>
+
+<script>
+var job_postings = new Datamap({
+  scope: 'usa',
+  element: document.getElementById('us_map_database_demand'),
+  geographyConfig: {
+    highlightBorderColor: '#fff',
+   popupTemplate: function(geography, data) {
+      return '<div class="hoverinfo"><strong>' + geography.properties.name + '</strong> <br />' + data.value + ' ' + data.fillKey + ' job openings</div>'
+    },
+    highlightBorderWidth: 3
+  },
+
+  fills: {
+  'SQL': '#1F77B4',
+  'Microsoft Access': '#b1c7e8',
+  defaultFill: '#7F7F7F'
+},
+data:{
+  "AL": {
+      "fillKey": "SQL",
+      "value": 580
+  },
+
+  "AK": {
+      "fillKey": "Microsoft Access",
+      "value": 153
+  },
+
+  "AZ": {
+      "fillKey": "SQL",
+      "value": 1930
+  },
+
+  "AR": {
+      "fillKey": "SQL",
+      "value": 262
+  },
+
+  "CA": {
+      "fillKey": "SQL",
+      "value": 15174
+  },
+
+  "CO": {
+      "fillKey": "SQL",
+      "value": 2447
+  },
+
+  "CT": {
+      "fillKey": "SQL",
+      "value": 1663
+  },
+
+  "DE": {
+      "fillKey": "SQL",
+      "value": 665
+  },
+
+  "FL": {
+      "fillKey": "SQL",
+      "value": 4412
+  },
+
+  "GA": {
+      "fillKey": "SQL",
+      "value": 4483
+  },
+
+  "HI": {
+      "fillKey": "Microsoft Access",
+      "value": 246
+  },
+
+  "ID": {
+      "fillKey": "SQL",
+      "value": 137
+  },
+
+  "IL": {
+      "fillKey": "SQL",
+      "value": 5533
+  },
+
+  "IN": {
+      "fillKey": "Microsoft Access",
+      "value": 1089
+  },
+
+  "IA": {
+      "fillKey": "SQL",
+      "value": 693
+  },
+
+  "KS": {
+      "fillKey": "SQL",
+      "value": 631
+  },
+
+  "KY": {
+      "fillKey": "SQL",
+      "value": 586
+  },
+
+  "LA": {
+      "fillKey": "SQL",
+      "value": 368
+  },
+
+  "ME": {
+      "fillKey": "SQL",
+      "value": 196
+  },
+
+  "MD": {
+      "fillKey": "SQL",
+      "value": 4397
+  },
+
+  "MA": {
+      "fillKey": "SQL",
+      "value": 4719
+  },
+
+  "MI": {
+      "fillKey": "SQL",
+      "value": 2226
+  },
+
+  "MN": {
+      "fillKey": "SQL",
+      "value": 2444
+  },
+
+  "MS": {
+      "fillKey": "Microsoft Access",
+      "value": 170
+  },
+
+  "MO": {
+      "fillKey": "SQL",
+      "value": 1773
+  },
+
+  "MT": {
+      "fillKey": "Microsoft Access",
+      "value": 69
+  },
+
+  "NE": {
+      "fillKey": "SQL",
+      "value": 539
+  },
+
+  "NV": {
+      "fillKey": "SQL",
+      "value": 467
+  },
+
+  "NH": {
+      "fillKey": "SQL",
+      "value": 413
+  },
+
+  "NJ": {
+      "fillKey": "SQL",
+      "value": 4086
+  },
+
+  "NM": {
+      "fillKey": "Microsoft Access",
+      "value": 340
+  },
+
+  "NY": {
+      "fillKey": "SQL",
+      "value": 8563
+  },
+
+  "NC": {
+      "fillKey": "SQL",
+      "value": 3603
+  },
+
+  "ND": {
+      "fillKey": "Microsoft Access",
+      "value": 149
+  },
+
+  "OH": {
+      "fillKey": "SQL",
+      "value": 3374
+  },
+
+  "OK": {
+      "fillKey": "Microsoft Access",
+      "value": 572
+  },
+
+  "OR": {
+      "fillKey": "SQL",
+      "value": 1186
+  },
+
+  "PA": {
+      "fillKey": "SQL",
+      "value": 4038
+  },
+
+  "RI": {
+      "fillKey": "SQL",
+      "value": 337
+  },
+
+  "SC": {
+      "fillKey": "SQL",
+      "value": 636
+  },
+
+  "SD": {
+      "fillKey": "SQL",
+      "value": 81
+  },
+
+  "TN": {
+      "fillKey": "SQL",
+      "value": 1159
+  },
+
+  "TX": {
+      "fillKey": "SQL",
+      "value": 8051
+  },
+
+  "UT": {
+      "fillKey": "SQL",
+      "value": 956
+  },
+
+  "VT": {
+      "fillKey": "SQL",
+      "value": 111
+  },
+
+  "VA": {
+      "fillKey": "SQL",
+      "value": 6468
+  },
+
+  "WA": {
+      "fillKey": "SQL",
+      "value": 3804
+  },
+
+  "WV": {
+      "fillKey": "Microsoft Access",
+      "value": 223
+  },
+
+  "WI": {
+      "fillKey": "SQL",
+      "value": 1208
+  },
+
+  "WY": {
+      "fillKey": "Microsoft Access",
+      "value": 72
+  }
+}
+});
+
+//job_postings.labels();
+job_postings.legend();
+</script>
+
+<br />
+<br />
+<br />
+<br />
+
+<center><h3>The most common database systems listed in resumes in each U.S. state</h3></center>
+
+<div class="map" id="us_map_database_supply"></div>
+
+<script>
+var job_postings = new Datamap({
+  scope: 'usa',
+  element: document.getElementById('us_map_database_supply'),
+  geographyConfig: {
+    highlightBorderColor: '#fff',
+   popupTemplate: function(geography, data) {
+      return '<div class="hoverinfo"><strong>' + geography.properties.name + '</strong> <br />' + data.value + ' resumes listing ' + data.fillKey + ' </div>'
+    },
+    highlightBorderWidth: 3
+  },
+
+  fills: {
+  'SQL': '#1F77B4',
+  'Microsoft Access': '#b1c7e8',
+  defaultFill: '#7F7F7F'
+},
+data:{
+  "AL": {
+      "fillKey": "Microsoft Access",
+      "value": 12019
+  },
+
+  "AK": {
+      "fillKey": "Microsoft Access",
+      "value": 731
+  },
+
+  "AZ": {
+      "fillKey": "Microsoft Access",
+      "value": 14605
+  },
+
+  "AR": {
+      "fillKey": "Microsoft Access",
+      "value": 4902
+  },
+
+  "CA": {
+      "fillKey": "Microsoft Access",
+      "value": 88980
+  },
+
+  "CO": {
+      "fillKey": "Microsoft Access",
+      "value": 15945
+  },
+
+  "CT": {
+      "fillKey": "Microsoft Access",
+      "value": 12545
+  },
+
+  "DE": {
+      "fillKey": "Microsoft Access",
+      "value": 3415
+  },
+
+  "FL": {
+      "fillKey": "Microsoft Access",
+      "value": 56741
+  },
+
+  "GA": {
+      "fillKey": "Microsoft Access",
+      "value": 47915
+  },
+
+  "HI": {
+      "fillKey": "Microsoft Access",
+      "value": 1444
+  },
+
+  "ID": {
+      "fillKey": "Microsoft Access",
+      "value": 1640
+  },
+
+  "IL": {
+      "fillKey": "Microsoft Access",
+      "value": 41369
+  },
+
+  "IN": {
+      "fillKey": "Microsoft Access",
+      "value": 12384
+  },
+
+  "IA": {
+      "fillKey": "Microsoft Access",
+      "value": 4347
+  },
+
+  "KS": {
+      "fillKey": "Microsoft Access",
+      "value": 5195
+  },
+
+  "KY": {
+      "fillKey": "Microsoft Access",
+      "value": 7911
+  },
+
+  "LA": {
+      "fillKey": "Microsoft Access",
+      "value": 9296
+  },
+
+  "ME": {
+      "fillKey": "Microsoft Access",
+      "value": 1689
+  },
+
+  "MD": {
+      "fillKey": "Microsoft Access",
+      "value": 34365
+  },
+
+  "MA": {
+      "fillKey": "Microsoft Access",
+      "value": 23774
+  },
+
+  "MI": {
+      "fillKey": "Microsoft Access",
+      "value": 22702
+  },
+
+  "MN": {
+      "fillKey": "Microsoft Access",
+      "value": 12656
+  },
+
+  "MS": {
+      "fillKey": "Microsoft Access",
+      "value": 5905
+  },
+
+  "MO": {
+      "fillKey": "Microsoft Access",
+      "value": 14338
+  },
+
+  "MT": {
+      "fillKey": "Microsoft Access",
+      "value": 722
+  },
+
+  "NE": {
+      "fillKey": "Microsoft Access",
+      "value": 2317
+  },
+
+  "NV": {
+      "fillKey": "Microsoft Access",
+      "value": 5774
+  },
+
+  "NH": {
+      "fillKey": "Microsoft Access",
+      "value": 3643
+  },
+
+  "NJ": {
+      "fillKey": "Microsoft Access",
+      "value": 39190
+  },
+
+  "NM": {
+      "fillKey": "Microsoft Access",
+      "value": 2662
+  },
+
+  "NY": {
+      "fillKey": "Microsoft Access",
+      "value": 66542
+  },
+
+  "NC": {
+      "fillKey": "Microsoft Access",
+      "value": 33296
+  },
+
+  "ND": {
+      "fillKey": "Microsoft Access",
+      "value": 735
+  },
+
+  "OH": {
+      "fillKey": "Microsoft Access",
+      "value": 26665
+  },
+
+  "OK": {
+      "fillKey": "Microsoft Access",
+      "value": 6505
+  },
+
+  "OR": {
+      "fillKey": "Microsoft Access",
+      "value": 5856
+  },
+
+  "PA": {
+      "fillKey": "Microsoft Access",
+      "value": 35717
+  },
+
+  "RI": {
+      "fillKey": "Microsoft Access",
+      "value": 2882
+  },
+
+  "SC": {
+      "fillKey": "Microsoft Access",
+      "value": 13146
+  },
+
+  "SD": {
+      "fillKey": "Microsoft Access",
+      "value": 601
+  },
+
+  "TN": {
+      "fillKey": "Microsoft Access",
+      "value": 15192
+  },
+
+  "TX": {
+      "fillKey": "Microsoft Access",
+      "value": 86947
+  },
+
+  "UT": {
+      "fillKey": "Microsoft Access",
+      "value": 4323
+  },
+
+  "VT": {
+      "fillKey": "Microsoft Access",
+      "value": 710
+  },
+
+  "VA": {
+      "fillKey": "Microsoft Access",
+      "value": 39676
+  },
+
+  "WA": {
+      "fillKey": "Microsoft Access",
+      "value": 15787
+  },
+
+  "WV": {
+      "fillKey": "Microsoft Access",
+      "value": 3058
+  },
+
+  "WI": {
+      "fillKey": "Microsoft Access",
+      "value": 9658
+  },
+
+  "WY": {
+      "fillKey": "Microsoft Access",
+      "value": 407
+  }
+}
+});
+
+//job_postings.labels();
+job_postings.legend();
+</script>
+
+<br />
+<br />
+<br />
+<br />
+
+<center><h3>The database system with the most jobs and least competition in each U.S. state</h3></center>
+
+<div class="map" id="us_map_database_ratio"></div>
+
+<script>
+var job_postings = new Datamap({
+  scope: 'usa',
+  element: document.getElementById('us_map_database_ratio'),
+  geographyConfig: {
+    highlightBorderColor: '#fff',
+   popupTemplate: function(geography, data) {
+      return '<div class="hoverinfo"><strong>' + geography.properties.name + '</strong> <br />' + data.value + ' ' + data.fillKey + ' job:resume ratio</div>'
+    },
+    highlightBorderWidth: 3
+  },
+
+  fills: {
+  'SQL': '#1F77B4',
+  'Microsoft Access': '#b1c7e8',
+  'NoSQL': '#FF7F0E',
+  'MySQL': '#ffbb78',
+  'MongoDB': '#2CA02C',
+  defaultFill: '#7F7F7F'
+},
+data:{
+  "AL": {
+      "fillKey": "SQL",
+      "value": 0.19
+  },
+
+  "AK": {
+      "fillKey": "SQL",
+      "value": 0.27
+  },
+
+  "AZ": {
+      "fillKey": "SQL",
+      "value": 0.28
+  },
+
+  "AR": {
+      "fillKey": "SQL",
+      "value": 0.16
+  },
+
+  "CA": {
+      "fillKey": "NoSQL",
+      "value": 3.07
+  },
+
+  "CO": {
+      "fillKey": "SQL",
+      "value": 0.29
+  },
+
+  "CT": {
+      "fillKey": "SQL",
+      "value": 0.32
+  },
+
+  "DE": {
+      "fillKey": "SQL",
+      "value": 0.47
+  },
+
+  "FL": {
+      "fillKey": "SQL",
+      "value": 0.23
+  },
+
+  "GA": {
+      "fillKey": "SQL",
+      "value": 0.23
+  },
+
+  "HI": {
+      "fillKey": "SQL",
+      "value": 0.33
+  },
+
+  "ID": {
+      "fillKey": "SQL",
+      "value": 0.18
+  },
+
+  "IL": {
+      "fillKey": "SQL",
+      "value": 0.3
+  },
+
+  "IN": {
+      "fillKey": "SQL",
+      "value": 0.26
+  },
+
+  "IA": {
+      "fillKey": "SQL",
+      "value": 0.36
+  },
+
+  "KS": {
+      "fillKey": "SQL",
+      "value": 0.32
+  },
+
+  "KY": {
+      "fillKey": "SQL",
+      "value": 0.26
+  },
+
+  "LA": {
+      "fillKey": "SQL",
+      "value": 0.21
+  },
+
+  "ME": {
+      "fillKey": "SQL",
+      "value": 0.34
+  },
+
+  "MD": {
+      "fillKey": "NoSQL",
+      "value": 11.16
+  },
+
+  "MA": {
+      "fillKey": "SQL",
+      "value": 0.38
+  },
+
+  "MI": {
+      "fillKey": "SQL",
+      "value": 0.31
+  },
+
+  "MN": {
+      "fillKey": "SQL",
+      "value": 0.41
+  },
+
+  "MS": {
+      "fillKey": "SQL",
+      "value": 0.1
+  },
+
+  "MO": {
+      "fillKey": "SQL",
+      "value": 0.35
+  },
+
+  "MT": {
+      "fillKey": "SQL",
+      "value": 0.23
+  },
+
+  "NE": {
+      "fillKey": "SQL",
+      "value": 0.51
+  },
+
+  "NV": {
+      "fillKey": "SQL",
+      "value": 0.25
+  },
+
+  "NH": {
+      "fillKey": "SQL",
+      "value": 0.23
+  },
+
+  "NJ": {
+      "fillKey": "SQL",
+      "value": 0.19
+  },
+
+  "NM": {
+      "fillKey": "SQL",
+      "value": 0.21
+  },
+
+  "NY": {
+      "fillKey": "SQL",
+      "value": 0.34
+  },
+
+  "NC": {
+      "fillKey": "SQL",
+      "value": 0.3
+  },
+
+  "ND": {
+      "fillKey": "SQL",
+      "value": 0.38
+  },
+
+  "OH": {
+      "fillKey": "SQL",
+      "value": 0.34
+  },
+
+  "OK": {
+      "fillKey": "SQL",
+      "value": 0.3
+  },
+
+  "OR": {
+      "fillKey": "SQL",
+      "value": 0.38
+  },
+
+  "PA": {
+      "fillKey": "NoSQL",
+      "value": 7.77
+  },
+
+  "RI": {
+      "fillKey": "SQL",
+      "value": 0.32
+  },
+
+  "SC": {
+      "fillKey": "SQL",
+      "value": 0.2
+  },
+
+  "SD": {
+      "fillKey": "SQL",
+      "value": 0.28
+  },
+
+  "TN": {
+      "fillKey": "SQL",
+      "value": 0.23
+  },
+
+  "TX": {
+      "fillKey": "SQL",
+      "value": 0.21
+  },
+
+  "UT": {
+      "fillKey": "SQL",
+      "value": 0.33
+  },
+
+  "VT": {
+      "fillKey": "MongoDB",
+      "value": 5.4
+  },
+
+  "VA": {
+      "fillKey": "SQL",
+      "value": 0.37
+  },
+
+  "WA": {
+      "fillKey": "SQL",
+      "value": 0.36
+  },
+
+  "WV": {
+      "fillKey": "SQL",
+      "value": 0.17
+  },
+
+  "WI": {
+      "fillKey": "SQL",
+      "value": 0.34
+  },
+
+  "WY": {
+      "fillKey": "MySQL",
+      "value": 0.25
+  }
+}
+});
+
+//job_postings.labels();
+job_postings.legend();
+</script>

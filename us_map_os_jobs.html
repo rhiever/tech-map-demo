@@ -1,0 +1,868 @@
+<!DOCTYPE html>
+<meta charset="utf-8">
+
+<style>
+        .map { position: relative; margin: 0 auto; width: 1000px; height: 500px;}
+</style>
+
+<title>The landscape of programming jobs in the U.S.</title>
+
+<script src="http://d3js.org/d3.v3.min.js"></script>
+<script src="http://d3js.org/topojson.v1.min.js"></script>
+<script src="http://datamaps.github.io/scripts/datamaps.usa.min.js"></script>
+
+<center><h1>Want a technical job in the U.S.?<br />List these operating systems in your resume</h1></center>
+
+<br />
+
+<center><h3>The most common OS listed in job ads in each U.S. state</h3></center>
+
+<div class="map" id="us_map_os_demand"></div>
+
+<script>
+var job_postings = new Datamap({
+  scope: 'usa',
+  element: document.getElementById('us_map_os_demand'),
+  geographyConfig: {
+    highlightBorderColor: '#fff',
+   popupTemplate: function(geography, data) {
+      return '<div class="hoverinfo"><strong>' + geography.properties.name + '</strong> <br />' + data.value + ' ' + data.fillKey + ' job openings</div>'
+    },
+    highlightBorderWidth: 3
+  },
+
+  fills: {
+  'Linux': '#1F77B4',
+  'Windows 7': '#b1c7e8',
+  'Windows 8': '#FF7F0E',
+  'Unix': '#ffbb78',
+  defaultFill: '#7F7F7F'
+},
+data:{
+  "AL": {
+      "fillKey": "Linux",
+      "value": 265
+  },
+
+  "AK": {
+      "fillKey": "Windows 8",
+      "value": 75
+  },
+
+  "AZ": {
+      "fillKey": "Linux",
+      "value": 906
+  },
+
+  "AR": {
+      "fillKey": "Unix",
+      "value": 80
+  },
+
+  "CA": {
+      "fillKey": "Linux",
+      "value": 11919
+  },
+
+  "CO": {
+      "fillKey": "Linux",
+      "value": 1988
+  },
+
+  "CT": {
+      "fillKey": "Linux",
+      "value": 496
+  },
+
+  "DE": {
+      "fillKey": "Unix",
+      "value": 294
+  },
+
+  "FL": {
+      "fillKey": "Linux",
+      "value": 1508
+  },
+
+  "GA": {
+      "fillKey": "Linux",
+      "value": 2092
+  },
+
+  "HI": {
+      "fillKey": "Windows 7",
+      "value": 92
+  },
+
+  "ID": {
+      "fillKey": "Linux",
+      "value": 100
+  },
+
+  "IL": {
+      "fillKey": "Linux",
+      "value": 2158
+  },
+
+  "IN": {
+      "fillKey": "Linux",
+      "value": 323
+  },
+
+  "IA": {
+      "fillKey": "Windows 7",
+      "value": 183
+  },
+
+  "KS": {
+      "fillKey": "Linux",
+      "value": 264
+  },
+
+  "KY": {
+      "fillKey": "Linux",
+      "value": 175
+  },
+
+  "LA": {
+      "fillKey": "Unix",
+      "value": 173
+  },
+
+  "ME": {
+      "fillKey": "Windows 8",
+      "value": 78
+  },
+
+  "MD": {
+      "fillKey": "Linux",
+      "value": 4214
+  },
+
+  "MA": {
+      "fillKey": "Linux",
+      "value": 3107
+  },
+
+  "MI": {
+      "fillKey": "Linux",
+      "value": 840
+  },
+
+  "MN": {
+      "fillKey": "Linux",
+      "value": 889
+  },
+
+  "MS": {
+      "fillKey": "Windows 8",
+      "value": 98
+  },
+
+  "MO": {
+      "fillKey": "Unix",
+      "value": 673
+  },
+
+  "MT": {
+      "fillKey": "Windows 7",
+      "value": 76
+  },
+
+  "NE": {
+      "fillKey": "Linux",
+      "value": 250
+  },
+
+  "NV": {
+      "fillKey": "Linux",
+      "value": 194
+  },
+
+  "NH": {
+      "fillKey": "Linux",
+      "value": 177
+  },
+
+  "NJ": {
+      "fillKey": "Unix",
+      "value": 1747
+  },
+
+  "NM": {
+      "fillKey": "Linux",
+      "value": 192
+  },
+
+  "NY": {
+      "fillKey": "Linux",
+      "value": 3950
+  },
+
+  "NC": {
+      "fillKey": "Linux",
+      "value": 1590
+  },
+
+  "ND": {
+      "fillKey": "Windows 7",
+      "value": 88
+  },
+
+  "OH": {
+      "fillKey": "Unix",
+      "value": 960
+  },
+
+  "OK": {
+      "fillKey": "Linux",
+      "value": 213
+  },
+
+  "OR": {
+      "fillKey": "Linux",
+      "value": 897
+  },
+
+  "PA": {
+      "fillKey": "Linux",
+      "value": 1587
+  },
+
+  "RI": {
+      "fillKey": "Linux",
+      "value": 180
+  },
+
+  "SC": {
+      "fillKey": "Linux",
+      "value": 268
+  },
+
+  "SD": {
+      "fillKey": "Windows 7",
+      "value": 50
+  },
+
+  "TN": {
+      "fillKey": "Linux",
+      "value": 346
+  },
+
+  "TX": {
+      "fillKey": "Linux",
+      "value": 3686
+  },
+
+  "UT": {
+      "fillKey": "Linux",
+      "value": 574
+  },
+
+  "VT": {
+      "fillKey": "Windows 8",
+      "value": 34
+  },
+
+  "VA": {
+      "fillKey": "Linux",
+      "value": 4430
+  },
+
+  "WA": {
+      "fillKey": "Linux",
+      "value": 2396
+  },
+
+  "WV": {
+      "fillKey": "Windows 7",
+      "value": 154
+  },
+
+  "WI": {
+      "fillKey": "Windows 7",
+      "value": 388
+  },
+
+  "WY": {
+      "fillKey": "Windows 7",
+      "value": 28
+  }
+}
+});
+
+//job_postings.labels();
+job_postings.legend();
+</script>
+
+<br />
+<br />
+<br />
+<br />
+
+<center><h3>The most common operating system listed in resumes in each U.S. state</h3></center>
+
+<div class="map" id="us_map_os_supply"></div>
+
+<script>
+var job_postings = new Datamap({
+  scope: 'usa',
+  element: document.getElementById('us_map_os_supply'),
+  geographyConfig: {
+    highlightBorderColor: '#fff',
+   popupTemplate: function(geography, data) {
+      return '<div class="hoverinfo"><strong>' + geography.properties.name + '</strong> <br />' + data.value + ' resumes listing ' + data.fillKey + ' </div>'
+    },
+    highlightBorderWidth: 3
+  },
+
+  fills: {
+  'Linux': '#1F77B4',
+  'Windows 7': '#b1c7e8',
+  'Windows 8': '#FF7F0E',
+  'Unix': '#ffbb78',
+  'Windows XP': '#2CA02C',
+  defaultFill: '#7F7F7F'
+},
+data:{
+  "AL": {
+      "fillKey": "Windows XP",
+      "value": 6443
+  },
+
+  "AK": {
+      "fillKey": "Windows 7",
+      "value": 302
+  },
+
+  "AZ": {
+      "fillKey": "Windows XP",
+      "value": 8710
+  },
+
+  "AR": {
+      "fillKey": "Windows XP",
+      "value": 2186
+  },
+
+  "CA": {
+      "fillKey": "Windows XP",
+      "value": 53600
+  },
+
+  "CO": {
+      "fillKey": "Windows XP",
+      "value": 8599
+  },
+
+  "CT": {
+      "fillKey": "Windows XP",
+      "value": 5904
+  },
+
+  "DE": {
+      "fillKey": "Windows XP",
+      "value": 1585
+  },
+
+  "FL": {
+      "fillKey": "Windows XP",
+      "value": 31984
+  },
+
+  "GA": {
+      "fillKey": "Windows XP",
+      "value": 25530
+  },
+
+  "HI": {
+      "fillKey": "Windows XP",
+      "value": 706
+  },
+
+  "ID": {
+      "fillKey": "Windows 7",
+      "value": 989
+  },
+
+  "IL": {
+      "fillKey": "Windows XP",
+      "value": 20095
+  },
+
+  "IN": {
+      "fillKey": "Windows XP",
+      "value": 5503
+  },
+
+  "IA": {
+      "fillKey": "Windows XP",
+      "value": 2054
+  },
+
+  "KS": {
+      "fillKey": "Windows XP",
+      "value": 2561
+  },
+
+  "KY": {
+      "fillKey": "Windows XP",
+      "value": 3399
+  },
+
+  "LA": {
+      "fillKey": "Windows XP",
+      "value": 4137
+  },
+
+  "ME": {
+      "fillKey": "Windows XP",
+      "value": 770
+  },
+
+  "MD": {
+      "fillKey": "Windows XP",
+      "value": 17614
+  },
+
+  "MA": {
+      "fillKey": "Windows XP",
+      "value": 11318
+  },
+
+  "MI": {
+      "fillKey": "Windows XP",
+      "value": 11097
+  },
+
+  "MN": {
+      "fillKey": "Windows XP",
+      "value": 5554
+  },
+
+  "MS": {
+      "fillKey": "Windows XP",
+      "value": 2743
+  },
+
+  "MO": {
+      "fillKey": "Windows XP",
+      "value": 7000
+  },
+
+  "MT": {
+      "fillKey": "Windows XP",
+      "value": 493
+  },
+
+  "NE": {
+      "fillKey": "Windows XP",
+      "value": 1111
+  },
+
+  "NV": {
+      "fillKey": "Windows XP",
+      "value": 3569
+  },
+
+  "NH": {
+      "fillKey": "Windows XP",
+      "value": 1906
+  },
+
+  "NJ": {
+      "fillKey": "Windows XP",
+      "value": 22898
+  },
+
+  "NM": {
+      "fillKey": "Windows XP",
+      "value": 1464
+  },
+
+  "NY": {
+      "fillKey": "Windows XP",
+      "value": 34989
+  },
+
+  "NC": {
+      "fillKey": "Windows XP",
+      "value": 16618
+  },
+
+  "ND": {
+      "fillKey": "Windows 7",
+      "value": 344
+  },
+
+  "OH": {
+      "fillKey": "Windows XP",
+      "value": 12540
+  },
+
+  "OK": {
+      "fillKey": "Windows XP",
+      "value": 3371
+  },
+
+  "OR": {
+      "fillKey": "Windows 7",
+      "value": 3218
+  },
+
+  "PA": {
+      "fillKey": "Windows XP",
+      "value": 16722
+  },
+
+  "RI": {
+      "fillKey": "Windows XP",
+      "value": 1433
+  },
+
+  "SC": {
+      "fillKey": "Windows XP",
+      "value": 6280
+  },
+
+  "SD": {
+      "fillKey": "Windows XP",
+      "value": 296
+  },
+
+  "TN": {
+      "fillKey": "Windows XP",
+      "value": 8111
+  },
+
+  "TX": {
+      "fillKey": "Windows XP",
+      "value": 47330
+  },
+
+  "UT": {
+      "fillKey": "Windows 7",
+      "value": 2481
+  },
+
+  "VT": {
+      "fillKey": "Windows XP",
+      "value": 335
+  },
+
+  "VA": {
+      "fillKey": "Windows XP",
+      "value": 21090
+  },
+
+  "WA": {
+      "fillKey": "Windows 7",
+      "value": 8457
+  },
+
+  "WV": {
+      "fillKey": "Windows XP",
+      "value": 1294
+  },
+
+  "WI": {
+      "fillKey": "Windows XP",
+      "value": 4217
+  },
+
+  "WY": {
+      "fillKey": "Windows XP",
+      "value": 200
+  }
+}
+});
+
+//job_postings.labels();
+job_postings.legend();
+</script>
+
+<br />
+<br />
+<br />
+<br />
+
+<center><h3>The operating system with the most jobs and least competition in each U.S. state</h3></center>
+
+<div class="map" id="us_map_os_ratio"></div>
+
+<script>
+var job_postings = new Datamap({
+  scope: 'usa',
+  element: document.getElementById('us_map_os_ratio'),
+  geographyConfig: {
+    highlightBorderColor: '#fff',
+   popupTemplate: function(geography, data) {
+      return '<div class="hoverinfo"><strong>' + geography.properties.name + '</strong> <br />' + data.value + ' ' + data.fillKey + ' job:resume ratio</div>'
+    },
+    highlightBorderWidth: 3
+  },
+
+  fills: {
+  'Linux': '#1F77B4',
+  'Windows 7': '#b1c7e8',
+  'Windows 8': '#FF7F0E',
+  'Unix': '#ffbb78',
+  'Windows XP': '#2CA02C',
+  defaultFill: '#7F7F7F'
+},
+data:{
+  "AL": {
+      "fillKey": "Linux",
+      "value": 0.11
+  },
+
+  "AK": {
+      "fillKey": "Windows 8",
+      "value": 0.42
+  },
+
+  "AZ": {
+      "fillKey": "Linux",
+      "value": 0.2
+  },
+
+  "AR": {
+      "fillKey": "Unix",
+      "value": 0.08
+  },
+
+  "CA": {
+      "fillKey": "Linux",
+      "value": 0.33
+  },
+
+  "CO": {
+      "fillKey": "Linux",
+      "value": 0.34
+  },
+
+  "CT": {
+      "fillKey": "Linux",
+      "value": 0.21
+  },
+
+  "DE": {
+      "fillKey": "Unix",
+      "value": 0.31
+  },
+
+  "FL": {
+      "fillKey": "Linux",
+      "value": 0.12
+  },
+
+  "GA": {
+      "fillKey": "Linux",
+      "value": 0.2
+  },
+
+  "HI": {
+      "fillKey": "Linux",
+      "value": 0.2
+  },
+
+  "ID": {
+      "fillKey": "Linux",
+      "value": 0.16
+  },
+
+  "IL": {
+      "fillKey": "Linux",
+      "value": 0.23
+  },
+
+  "IN": {
+      "fillKey": "Windows 8",
+      "value": 0.12
+  },
+
+  "IA": {
+      "fillKey": "Windows 8",
+      "value": 0.17
+  },
+
+  "KS": {
+      "fillKey": "Linux",
+      "value": 0.21
+  },
+
+  "KY": {
+      "fillKey": "Linux",
+      "value": 0.12
+  },
+
+  "LA": {
+      "fillKey": "Unix",
+      "value": 0.17
+  },
+
+  "ME": {
+      "fillKey": "Windows 8",
+      "value": 0.2
+  },
+
+  "MD": {
+      "fillKey": "Linux",
+      "value": 0.54
+  },
+
+  "MA": {
+      "fillKey": "Linux",
+      "value": 0.4
+  },
+
+  "MI": {
+      "fillKey": "Linux",
+      "value": 0.16
+  },
+
+  "MN": {
+      "fillKey": "Linux",
+      "value": 0.28
+  },
+
+  "MS": {
+      "fillKey": "Linux",
+      "value": 0.11
+  },
+
+  "MO": {
+      "fillKey": "Unix",
+      "value": 0.23
+  },
+
+  "MT": {
+      "fillKey": "Windows 8",
+      "value": 0.33
+  },
+
+  "NE": {
+      "fillKey": "Linux",
+      "value": 0.38
+  },
+
+  "NV": {
+      "fillKey": "Linux",
+      "value": 0.14
+  },
+
+  "NH": {
+      "fillKey": "Linux",
+      "value": 0.14
+  },
+
+  "NJ": {
+      "fillKey": "Linux",
+      "value": 0.16
+  },
+
+  "NM": {
+      "fillKey": "Linux",
+      "value": 0.22
+  },
+
+  "NY": {
+      "fillKey": "Linux",
+      "value": 0.27
+  },
+
+  "NC": {
+      "fillKey": "Linux",
+      "value": 0.21
+  },
+
+  "ND": {
+      "fillKey": "Windows 8",
+      "value": 0.41
+  },
+
+  "OH": {
+      "fillKey": "Unix",
+      "value": 0.18
+  },
+
+  "OK": {
+      "fillKey": "Linux",
+      "value": 0.16
+  },
+
+  "OR": {
+      "fillKey": "Linux",
+      "value": 0.4
+  },
+
+  "PA": {
+      "fillKey": "Linux",
+      "value": 0.2
+  },
+
+  "RI": {
+      "fillKey": "Linux",
+      "value": 0.26
+  },
+
+  "SC": {
+      "fillKey": "Linux",
+      "value": 0.13
+  },
+
+  "SD": {
+      "fillKey": "Windows 8",
+      "value": 0.32
+  },
+
+  "TN": {
+      "fillKey": "Linux",
+      "value": 0.11
+  },
+
+  "TX": {
+      "fillKey": "Linux",
+      "value": 0.16
+  },
+
+  "UT": {
+      "fillKey": "Linux",
+      "value": 0.27
+  },
+
+  "VT": {
+      "fillKey": "Windows 8",
+      "value": 0.22
+  },
+
+  "VA": {
+      "fillKey": "Linux",
+      "value": 0.43
+  },
+
+  "WA": {
+      "fillKey": "Linux",
+      "value": 0.45
+  },
+
+  "WV": {
+      "fillKey": "Windows 8",
+      "value": 0.2
+  },
+
+  "WI": {
+      "fillKey": "Windows 8",
+      "value": 0.19
+  },
+
+  "WY": {
+      "fillKey": "Windows 8",
+      "value": 0.28
+  }
+}
+});
+
+//job_postings.labels();
+job_postings.legend();
+</script>

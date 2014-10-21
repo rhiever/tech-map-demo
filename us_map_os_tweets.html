@@ -1,0 +1,308 @@
+<!DOCTYPE html>
+<meta charset="utf-8">
+
+<style>
+        .map { position: relative; margin: 0 auto; width: 1000px; height: 500px;}
+</style>
+
+<title>The landscape of programming jobs in the U.S.</title>
+
+<script src="http://d3js.org/d3.v3.min.js"></script>
+<script src="http://d3js.org/topojson.v1.min.js"></script>
+<script src="http://datamaps.github.io/scripts/datamaps.usa.min.js"></script>
+
+<center><h1>What's the most commonly discussed operating system on Twitter?</h1></center>
+
+<br />
+
+<center><h3>The most commonly mentioned operating systems on Twitter in each U.S. state</h3></center>
+
+<div class="map" id="us_map_os_twitter_overall"></div>
+
+<script>
+var twitter_map = new Datamap({
+  scope: 'usa',
+  element: document.getElementById('us_map_os_twitter_overall'),
+  geographyConfig: {
+    highlightBorderColor: '#fff',
+   popupTemplate: function(geography, data) {
+      if (data.fillKey == 'No tweets') return '<div class="hoverinfo"><strong>' + geography.properties.name + '</strong> <br />No tweets available'
+   	  else return '<div class="hoverinfo"><strong>' + geography.properties.name + '</strong> <br />' + data.value + ' tweets about ' + data.fillKey + '</div>'
+    },
+    highlightBorderWidth: 3
+  },
+
+  fills: {
+  'Windows 8': '#1F77B4',
+  'Linux': '#D62834',
+  defaultFill: '#7F7F7F'
+},
+data:{
+  "AL": {
+      "fillKey": "Windows 8",
+      "value": 1008
+  },
+
+  "AK": {
+      "fillKey": "Windows 8",
+      "value": 35
+  },
+
+  "AZ": {
+      "fillKey": "Windows 8",
+      "value": 444
+  },
+
+  "AR": {
+      "fillKey": "Windows 8",
+      "value": 71
+  },
+
+  "CA": {
+      "fillKey": "Windows 8",
+      "value": 3205
+  },
+
+  "CO": {
+      "fillKey": "Windows 8",
+      "value": 220
+  },
+
+  "CT": {
+      "fillKey": "Windows 8",
+      "value": 151
+  },
+
+  "DE": {
+      "fillKey": "Windows 8",
+      "value": 62
+  },
+
+  "FL": {
+      "fillKey": "Windows 8",
+      "value": 2129
+  },
+
+  "GA": {
+      "fillKey": "Linux",
+      "value": 524
+  },
+
+  "HI": {
+      "fillKey": "Windows 8",
+      "value": 34
+  },
+
+  "ID": {
+      "fillKey": "Windows 8",
+      "value": 224
+  },
+
+  "IL": {
+      "fillKey": "Windows 8",
+      "value": 468
+  },
+
+  "IN": {
+      "fillKey": "Linux",
+      "value": 434
+  },
+
+  "IA": {
+      "fillKey": "Windows 8",
+      "value": 84
+  },
+
+  "KS": {
+      "fillKey": "Windows 8",
+      "value": 67
+  },
+
+  "KY": {
+      "fillKey": "Windows 8",
+      "value": 132
+  },
+
+  "LA": {
+      "fillKey": "Windows 8",
+      "value": 129
+  },
+
+  "ME": {
+      "fillKey": "Windows 8",
+      "value": 54
+  },
+
+  "MD": {
+      "fillKey": "Windows 8",
+      "value": 277
+  },
+
+  "MA": {
+      "fillKey": "Windows 8",
+      "value": 372
+  },
+
+  "MI": {
+      "fillKey": "Windows 8",
+      "value": 364
+  },
+
+  "MN": {
+      "fillKey": "Windows 8",
+      "value": 200
+  },
+
+  "MS": {
+      "fillKey": "Windows 8",
+      "value": 35
+  },
+
+  "MO": {
+      "fillKey": "Windows 8",
+      "value": 189
+  },
+
+  "MT": {
+      "fillKey": "Windows 8",
+      "value": 23
+  },
+
+  "NE": {
+      "fillKey": "Windows 8",
+      "value": 50
+  },
+
+  "NV": {
+      "fillKey": "Windows 8",
+      "value": 154
+  },
+
+  "NH": {
+      "fillKey": "Windows 8",
+      "value": 73
+  },
+
+  "NJ": {
+      "fillKey": "Windows 8",
+      "value": 553
+  },
+
+  "NM": {
+      "fillKey": "Windows 8",
+      "value": 78
+  },
+
+  "NY": {
+      "fillKey": "Windows 8",
+      "value": 4018
+  },
+
+  "NC": {
+      "fillKey": "Windows 8",
+      "value": 363
+  },
+
+  "ND": {
+      "fillKey": "Windows 8",
+      "value": 18
+  },
+
+  "OH": {
+      "fillKey": "Windows 8",
+      "value": 622
+  },
+
+  "OK": {
+      "fillKey": "Windows 8",
+      "value": 114
+  },
+
+  "OR": {
+      "fillKey": "Windows 8",
+      "value": 249
+  },
+
+  "PA": {
+      "fillKey": "Windows 8",
+      "value": 420
+  },
+
+  "RI": {
+      "fillKey": "Windows 8",
+      "value": 46
+  },
+
+  "SC": {
+      "fillKey": "Windows 8",
+      "value": 190
+  },
+
+  "SD": {
+      "fillKey": "Windows 8",
+      "value": 25
+  },
+
+  "TN": {
+      "fillKey": "Windows 8",
+      "value": 199
+  },
+
+  "TX": {
+      "fillKey": "Windows 8",
+      "value": 1135
+  },
+
+  "UT": {
+      "fillKey": "Windows 8",
+      "value": 237
+  },
+
+  "VT": {
+      "fillKey": "Windows 8",
+      "value": 23
+  },
+
+  "VA": {
+      "fillKey": "Windows 8",
+      "value": 291
+  },
+
+  "WA": {
+      "fillKey": "Windows 8",
+      "value": 1527
+  },
+
+  "WV": {
+      "fillKey": "Windows 8",
+      "value": 86
+  },
+
+  "WI": {
+      "fillKey": "Windows 8",
+      "value": 293
+  },
+
+  "WY": {
+      "fillKey": "Windows 8",
+      "value": 8
+  }
+}
+});
+
+//twitter_map.labels();
+twitter_map.legend();
+</script>
+
+<br />
+<br />
+<br />
+<br />
+
+<center><h3>No interesting comparisons here :-(</h3>
+
+Almost always:
+Windows 8 > Windows 7 > Windows XP > Linux > rest</center>
+
+<br />
+<br />

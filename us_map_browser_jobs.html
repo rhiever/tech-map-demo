@@ -1,0 +1,864 @@
+<!DOCTYPE html>
+<meta charset="utf-8">
+
+<style>
+        .map { position: relative; margin: 0 auto; width: 1000px; height: 500px;}
+</style>
+
+<title>The landscape of programming jobs in the U.S.</title>
+
+<script src="http://d3js.org/d3.v3.min.js"></script>
+<script src="http://d3js.org/topojson.v1.min.js"></script>
+<script src="http://datamaps.github.io/scripts/datamaps.usa.min.js"></script>
+
+<center><h1>Want a technical job in the U.S.?<br />List these web browsers in your resume</h1></center>
+
+<br />
+
+<center><h3>The most common web browser listed in job ads in each U.S. state</h3></center>
+
+<div class="map" id="us_map_browser_demand"></div>
+
+<script>
+var job_postings = new Datamap({
+  scope: 'usa',
+  element: document.getElementById('us_map_browser_demand'),
+  geographyConfig: {
+    highlightBorderColor: '#fff',
+   popupTemplate: function(geography, data) {
+      return '<div class="hoverinfo"><strong>' + geography.properties.name + '</strong> <br />' + data.value + ' ' + data.fillKey + ' job openings</div>'
+    },
+    highlightBorderWidth: 3
+  },
+
+  fills: {
+  'Internet Explorer': '#1F77B4',
+  'IE11': '#b1c7e8',
+  defaultFill: '#7F7F7F'
+},
+data:{
+  "AL": {
+      "fillKey": "Internet Explorer",
+      "value": 41
+  },
+
+  "AK": {
+      "fillKey": "Internet Explorer",
+      "value": 12
+  },
+
+  "AZ": {
+      "fillKey": "Internet Explorer",
+      "value": 152
+  },
+
+  "AR": {
+      "fillKey": "Internet Explorer",
+      "value": 23
+  },
+
+  "CA": {
+      "fillKey": "Internet Explorer",
+      "value": 726
+  },
+
+  "CO": {
+      "fillKey": "Internet Explorer",
+      "value": 138
+  },
+
+  "CT": {
+      "fillKey": "Internet Explorer",
+      "value": 60
+  },
+
+  "DE": {
+      "fillKey": "IE11",
+      "value": 9
+  },
+
+  "FL": {
+      "fillKey": "Internet Explorer",
+      "value": 347
+  },
+
+  "GA": {
+      "fillKey": "Internet Explorer",
+      "value": 128
+  },
+
+  "HI": {
+      "fillKey": "Internet Explorer",
+      "value": 13
+  },
+
+  "ID": {
+      "fillKey": "Internet Explorer",
+      "value": 15
+  },
+
+  "IL": {
+      "fillKey": "Internet Explorer",
+      "value": 186
+  },
+
+  "IN": {
+      "fillKey": "Internet Explorer",
+      "value": 93
+  },
+
+  "IA": {
+      "fillKey": "Internet Explorer",
+      "value": 61
+  },
+
+  "KS": {
+      "fillKey": "Internet Explorer",
+      "value": 62
+  },
+
+  "KY": {
+      "fillKey": "Internet Explorer",
+      "value": 55
+  },
+
+  "LA": {
+      "fillKey": "Internet Explorer",
+      "value": 48
+  },
+
+  "ME": {
+      "fillKey": "Internet Explorer",
+      "value": 26
+  },
+
+  "MD": {
+      "fillKey": "Internet Explorer",
+      "value": 279
+  },
+
+  "MA": {
+      "fillKey": "Internet Explorer",
+      "value": 157
+  },
+
+  "MI": {
+      "fillKey": "Internet Explorer",
+      "value": 144
+  },
+
+  "MN": {
+      "fillKey": "Internet Explorer",
+      "value": 113
+  },
+
+  "MS": {
+      "fillKey": "Internet Explorer",
+      "value": 13
+  },
+
+  "MO": {
+      "fillKey": "Internet Explorer",
+      "value": 90
+  },
+
+  "MT": {
+      "fillKey": "Internet Explorer",
+      "value": 10
+  },
+
+  "NE": {
+      "fillKey": "Internet Explorer",
+      "value": 32
+  },
+
+  "NV": {
+      "fillKey": "Internet Explorer",
+      "value": 40
+  },
+
+  "NH": {
+      "fillKey": "Internet Explorer",
+      "value": 22
+  },
+
+  "NJ": {
+      "fillKey": "Internet Explorer",
+      "value": 121
+  },
+
+  "NM": {
+      "fillKey": "Internet Explorer",
+      "value": 13
+  },
+
+  "NY": {
+      "fillKey": "Internet Explorer",
+      "value": 344
+  },
+
+  "NC": {
+      "fillKey": "Internet Explorer",
+      "value": 140
+  },
+
+  "ND": {
+      "fillKey": "Internet Explorer",
+      "value": 17
+  },
+
+  "OH": {
+      "fillKey": "Internet Explorer",
+      "value": 274
+  },
+
+  "OK": {
+      "fillKey": "Internet Explorer",
+      "value": 41
+  },
+
+  "OR": {
+      "fillKey": "Internet Explorer",
+      "value": 82
+  },
+
+  "PA": {
+      "fillKey": "Internet Explorer",
+      "value": 286
+  },
+
+  "RI": {
+      "fillKey": "Internet Explorer",
+      "value": 15
+  },
+
+  "SC": {
+      "fillKey": "Internet Explorer",
+      "value": 42
+  },
+
+  "SD": {
+      "fillKey": "Internet Explorer",
+      "value": 8
+  },
+
+  "TN": {
+      "fillKey": "Internet Explorer",
+      "value": 70
+  },
+
+  "TX": {
+      "fillKey": "Internet Explorer",
+      "value": 495
+  },
+
+  "UT": {
+      "fillKey": "Internet Explorer",
+      "value": 45
+  },
+
+  "VT": {
+      "fillKey": "Internet Explorer",
+      "value": 16
+  },
+
+  "VA": {
+      "fillKey": "Internet Explorer",
+      "value": 185
+  },
+
+  "WA": {
+      "fillKey": "Internet Explorer",
+      "value": 276
+  },
+
+  "WV": {
+      "fillKey": "Internet Explorer",
+      "value": 16
+  },
+
+  "WI": {
+      "fillKey": "Internet Explorer",
+      "value": 127
+  },
+
+  "WY": {
+      "fillKey": "Internet Explorer",
+      "value": 17
+  }
+}
+});
+
+//job_postings.labels();
+job_postings.legend();
+</script>
+
+<br />
+<br />
+<br />
+<br />
+
+<center><h3>The most common web browser listed in resumes in each U.S. state</h3></center>
+
+<div class="map" id="us_map_browser_supply"></div>
+
+<script>
+var job_postings = new Datamap({
+  scope: 'usa',
+  element: document.getElementById('us_map_browser_supply'),
+  geographyConfig: {
+    highlightBorderColor: '#fff',
+   popupTemplate: function(geography, data) {
+      return '<div class="hoverinfo"><strong>' + geography.properties.name + '</strong> <br />' + data.value + ' resumes listing ' + data.fillKey + ' </div>'
+    },
+    highlightBorderWidth: 3
+  },
+
+  fills: {
+  'Internet Explorer': '#1F77B4',
+  defaultFill: '#7F7F7F'
+},
+data:{
+  "AL": {
+      "fillKey": "Internet Explorer",
+      "value": 2089
+  },
+
+  "AK": {
+      "fillKey": "Internet Explorer",
+      "value": 101
+  },
+
+  "AZ": {
+      "fillKey": "Internet Explorer",
+      "value": 3006
+  },
+
+  "AR": {
+      "fillKey": "Internet Explorer",
+      "value": 854
+  },
+
+  "CA": {
+      "fillKey": "Internet Explorer",
+      "value": 15617
+  },
+
+  "CO": {
+      "fillKey": "Internet Explorer",
+      "value": 2520
+  },
+
+  "CT": {
+      "fillKey": "Internet Explorer",
+      "value": 1869
+  },
+
+  "DE": {
+      "fillKey": "Internet Explorer",
+      "value": 538
+  },
+
+  "FL": {
+      "fillKey": "Internet Explorer",
+      "value": 11388
+  },
+
+  "GA": {
+      "fillKey": "Internet Explorer",
+      "value": 8468
+  },
+
+  "HI": {
+      "fillKey": "Internet Explorer",
+      "value": 230
+  },
+
+  "ID": {
+      "fillKey": "Internet Explorer",
+      "value": 315
+  },
+
+  "IL": {
+      "fillKey": "Internet Explorer",
+      "value": 6185
+  },
+
+  "IN": {
+      "fillKey": "Internet Explorer",
+      "value": 1764
+  },
+
+  "IA": {
+      "fillKey": "Internet Explorer",
+      "value": 689
+  },
+
+  "KS": {
+      "fillKey": "Internet Explorer",
+      "value": 769
+  },
+
+  "KY": {
+      "fillKey": "Internet Explorer",
+      "value": 1289
+  },
+
+  "LA": {
+      "fillKey": "Internet Explorer",
+      "value": 1724
+  },
+
+  "ME": {
+      "fillKey": "Internet Explorer",
+      "value": 250
+  },
+
+  "MD": {
+      "fillKey": "Internet Explorer",
+      "value": 5873
+  },
+
+  "MA": {
+      "fillKey": "Internet Explorer",
+      "value": 3307
+  },
+
+  "MI": {
+      "fillKey": "Internet Explorer",
+      "value": 3732
+  },
+
+  "MN": {
+      "fillKey": "Internet Explorer",
+      "value": 1662
+  },
+
+  "MS": {
+      "fillKey": "Internet Explorer",
+      "value": 1264
+  },
+
+  "MO": {
+      "fillKey": "Internet Explorer",
+      "value": 2349
+  },
+
+  "MT": {
+      "fillKey": "Internet Explorer",
+      "value": 130
+  },
+
+  "NE": {
+      "fillKey": "Internet Explorer",
+      "value": 393
+  },
+
+  "NV": {
+      "fillKey": "Internet Explorer",
+      "value": 1180
+  },
+
+  "NH": {
+      "fillKey": "Internet Explorer",
+      "value": 490
+  },
+
+  "NJ": {
+      "fillKey": "Internet Explorer",
+      "value": 6769
+  },
+
+  "NM": {
+      "fillKey": "Internet Explorer",
+      "value": 511
+  },
+
+  "NY": {
+      "fillKey": "Internet Explorer",
+      "value": 11829
+  },
+
+  "NC": {
+      "fillKey": "Internet Explorer",
+      "value": 5748
+  },
+
+  "ND": {
+      "fillKey": "Internet Explorer",
+      "value": 95
+  },
+
+  "OH": {
+      "fillKey": "Internet Explorer",
+      "value": 3505
+  },
+
+  "OK": {
+      "fillKey": "Internet Explorer",
+      "value": 974
+  },
+
+  "OR": {
+      "fillKey": "Internet Explorer",
+      "value": 949
+  },
+
+  "PA": {
+      "fillKey": "Internet Explorer",
+      "value": 5778
+  },
+
+  "RI": {
+      "fillKey": "Internet Explorer",
+      "value": 479
+  },
+
+  "SC": {
+      "fillKey": "Internet Explorer",
+      "value": 2329
+  },
+
+  "SD": {
+      "fillKey": "Internet Explorer",
+      "value": 87
+  },
+
+  "TN": {
+      "fillKey": "Internet Explorer",
+      "value": 2478
+  },
+
+  "TX": {
+      "fillKey": "Internet Explorer",
+      "value": 28845
+  },
+
+  "UT": {
+      "fillKey": "Internet Explorer",
+      "value": 739
+  },
+
+  "VT": {
+      "fillKey": "Internet Explorer",
+      "value": 112
+  },
+
+  "VA": {
+      "fillKey": "Internet Explorer",
+      "value": 6225
+  },
+
+  "WA": {
+      "fillKey": "Internet Explorer",
+      "value": 2315
+  },
+
+  "WV": {
+      "fillKey": "Internet Explorer",
+      "value": 429
+  },
+
+  "WI": {
+      "fillKey": "Internet Explorer",
+      "value": 1411
+  },
+
+  "WY": {
+      "fillKey": "Internet Explorer",
+      "value": 57
+  }
+}
+});
+
+//job_postings.labels();
+job_postings.legend();
+</script>
+
+<br />
+<br />
+<br />
+<br />
+
+<center><h3>The web browser with the most jobs and least competition in each U.S. state</h3></center>
+
+<div class="map" id="us_map_browser_ratio"></div>
+
+<script>
+var job_postings = new Datamap({
+  scope: 'usa',
+  element: document.getElementById('us_map_browser_ratio'),
+  geographyConfig: {
+    highlightBorderColor: '#fff',
+   popupTemplate: function(geography, data) {
+      return '<div class="hoverinfo"><strong>' + geography.properties.name + '</strong> <br />' + data.value + ' ' + data.fillKey + ' job:resume ratio</div>'
+    },
+    highlightBorderWidth: 3
+  },
+
+  fills: {
+  'Internet Explorer': '#1F77B4',
+  'IE11': '#b1c7e8',
+  'Google Chrome': '#FF7F0E',
+  'IE10': '#ffbb78',
+  'Firefox': '#2CA02C',
+  'IE9': '#9BDF8A',
+  'Safari': '#D62834',
+  defaultFill: '#7F7F7F'
+},
+data:{
+  "AL": {
+      "fillKey": "Google Chrome",
+      "value": 0.08
+  },
+
+  "AK": {
+      "fillKey": "Firefox",
+      "value": 0.14
+  },
+
+  "AZ": {
+      "fillKey": "IE11",
+      "value": 7.5
+  },
+
+  "AR": {
+      "fillKey": "Google Chrome",
+      "value": 0.07
+  },
+
+  "CA": {
+      "fillKey": "IE10",
+      "value": 22.8
+  },
+
+  "CO": {
+      "fillKey": "IE10",
+      "value": 15.8
+  },
+
+  "CT": {
+      "fillKey": "Google Chrome",
+      "value": 0.05
+  },
+
+  "DE": {
+      "fillKey": "IE9",
+      "value": 1.0
+  },
+
+  "FL": {
+      "fillKey": "IE11",
+      "value": 10.75
+  },
+
+  "GA": {
+      "fillKey": "Firefox",
+      "value": 0.02
+  },
+
+  "HI": {
+      "fillKey": "Google Chrome",
+      "value": 0.22
+  },
+
+  "ID": {
+      "fillKey": "Google Chrome",
+      "value": 0.07
+  },
+
+  "IL": {
+      "fillKey": "IE10",
+      "value": 9.0
+  },
+
+  "IN": {
+      "fillKey": "Safari",
+      "value": 0.11
+  },
+
+  "IA": {
+      "fillKey": "Google Chrome",
+      "value": 0.2
+  },
+
+  "KS": {
+      "fillKey": "Google Chrome",
+      "value": 0.12
+  },
+
+  "KY": {
+      "fillKey": "Google Chrome",
+      "value": 0.07
+  },
+
+  "LA": {
+      "fillKey": "Google Chrome",
+      "value": 0.12
+  },
+
+  "ME": {
+      "fillKey": "Google Chrome",
+      "value": 0.13
+  },
+
+  "MD": {
+      "fillKey": "IE10",
+      "value": 14.33
+  },
+
+  "MA": {
+      "fillKey": "IE11",
+      "value": 18.67
+  },
+
+  "MI": {
+      "fillKey": "Internet Explorer",
+      "value": 0.04
+  },
+
+  "MN": {
+      "fillKey": "IE11",
+      "value": 5.33
+  },
+
+  "MS": {
+      "fillKey": "Google Chrome",
+      "value": 0.04
+  },
+
+  "MO": {
+      "fillKey": "IE10",
+      "value": 13.5
+  },
+
+  "MT": {
+      "fillKey": "Firefox",
+      "value": 0.08
+  },
+
+  "NE": {
+      "fillKey": "Google Chrome",
+      "value": 0.14
+  },
+
+  "NV": {
+      "fillKey": "Internet Explorer",
+      "value": 0.03
+  },
+
+  "NH": {
+      "fillKey": "Safari",
+      "value": 0.1
+  },
+
+  "NJ": {
+      "fillKey": "IE11",
+      "value": 20.2
+  },
+
+  "NM": {
+      "fillKey": "Google Chrome",
+      "value": 0.05
+  },
+
+  "NY": {
+      "fillKey": "IE10",
+      "value": 6.56
+  },
+
+  "NC": {
+      "fillKey": "IE10",
+      "value": 15.5
+  },
+
+  "ND": {
+      "fillKey": "Firefox",
+      "value": 0.55
+  },
+
+  "OH": {
+      "fillKey": "Internet Explorer",
+      "value": 0.08
+  },
+
+  "OK": {
+      "fillKey": "Google Chrome",
+      "value": 0.1
+  },
+
+  "OR": {
+      "fillKey": "Internet Explorer",
+      "value": 0.09
+  },
+
+  "PA": {
+      "fillKey": "IE10",
+      "value": 10.8
+  },
+
+  "RI": {
+      "fillKey": "IE9",
+      "value": 1.0
+  },
+
+  "SC": {
+      "fillKey": "Firefox",
+      "value": 0.04
+  },
+
+  "SD": {
+      "fillKey": "Google Chrome",
+      "value": 0.13
+  },
+
+  "TN": {
+      "fillKey": "Google Chrome",
+      "value": 0.05
+  },
+
+  "TX": {
+      "fillKey": "IE10",
+      "value": 12.78
+  },
+
+  "UT": {
+      "fillKey": "Internet Explorer",
+      "value": 0.06
+  },
+
+  "VT": {
+      "fillKey": "Google Chrome",
+      "value": 0.23
+  },
+
+  "VA": {
+      "fillKey": "IE10",
+      "value": 26.75
+  },
+
+  "WA": {
+      "fillKey": "Internet Explorer",
+      "value": 0.12
+  },
+
+  "WV": {
+      "fillKey": "Google Chrome",
+      "value": 0.16
+  },
+
+  "WI": {
+      "fillKey": "Internet Explorer",
+      "value": 0.09
+  },
+
+  "WY": {
+      "fillKey": "Google Chrome",
+      "value": 0.43
+  }
+}
+});
+
+//job_postings.labels();
+job_postings.legend();
+</script>

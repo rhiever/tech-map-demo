@@ -1,0 +1,304 @@
+<!DOCTYPE html>
+<meta charset="utf-8">
+
+<style>
+        .map { position: relative; margin: 0 auto; width: 1000px; height: 500px;}
+</style>
+
+<title>The landscape of programming jobs in the U.S.</title>
+
+<script src="http://d3js.org/d3.v3.min.js"></script>
+<script src="http://d3js.org/topojson.v1.min.js"></script>
+<script src="http://datamaps.github.io/scripts/datamaps.usa.min.js"></script>
+
+<center><h1>What's the most commonly discussed web browser on Twitter?</h1></center>
+
+<br />
+
+<center><h3>Internet Explorer vs. Google Chrome</h3></center>
+
+<div class="map" id="us_map_browser_twitter_overall"></div>
+
+<script>
+var twitter_map = new Datamap({
+  scope: 'usa',
+  element: document.getElementById('us_map_browser_twitter_overall'),
+  geographyConfig: {
+    highlightBorderColor: '#fff',
+   popupTemplate: function(geography, data) {
+      return '<div class="hoverinfo"><strong>' + geography.properties.name + '</strong> <br />' + data.value + ' tweets about ' + data.fillKey + '</div>'
+    },
+    highlightBorderWidth: 3
+  },
+
+  fills: {
+  'Internet Explorer': '#1F77B4',
+  'Google Chrome': '#D62834',
+  defaultFill: '#7F7F7F'
+},
+data:{
+  "AL": {
+      "fillKey": "Internet Explorer",
+      "value": 111
+  },
+
+  "AK": {
+      "fillKey": "Internet Explorer",
+      "value": 7
+  },
+
+  "AZ": {
+      "fillKey": "Internet Explorer",
+      "value": 109
+  },
+
+  "AR": {
+      "fillKey": "Google Chrome",
+      "value": 16
+  },
+
+  "CA": {
+      "fillKey": "Google Chrome",
+      "value": 742
+  },
+
+  "CO": {
+      "fillKey": "Internet Explorer",
+      "value": 78
+  },
+
+  "CT": {
+      "fillKey": "Internet Explorer",
+      "value": 41
+  },
+
+  "DE": {
+      "fillKey": "Google Chrome",
+      "value": 11
+  },
+
+  "FL": {
+      "fillKey": "Internet Explorer",
+      "value": 251
+  },
+
+  "GA": {
+      "fillKey": "Google Chrome",
+      "value": 129
+  },
+
+  "HI": {
+      "fillKey": "Internet Explorer",
+      "value": 16
+  },
+
+  "ID": {
+      "fillKey": "Google Chrome",
+      "value": 25
+  },
+
+  "IL": {
+      "fillKey": "Internet Explorer",
+      "value": 181
+  },
+
+  "IN": {
+      "fillKey": "Internet Explorer",
+      "value": 68
+  },
+
+  "IA": {
+      "fillKey": "Internet Explorer",
+      "value": 42
+  },
+
+  "KS": {
+      "fillKey": "Internet Explorer",
+      "value": 41
+  },
+
+  "KY": {
+      "fillKey": "Internet Explorer",
+      "value": 44
+  },
+
+  "LA": {
+      "fillKey": "Google Chrome",
+      "value": 51
+  },
+
+  "ME": {
+      "fillKey": "Internet Explorer",
+      "value": 16
+  },
+
+  "MD": {
+      "fillKey": "Google Chrome",
+      "value": 68
+  },
+
+  "MA": {
+      "fillKey": "Google Chrome",
+      "value": 128
+  },
+
+  "MI": {
+      "fillKey": "Internet Explorer",
+      "value": 131
+  },
+
+  "MN": {
+      "fillKey": "Internet Explorer",
+      "value": 88
+  },
+
+  "MS": {
+      "fillKey": "Internet Explorer",
+      "value": 14
+  },
+
+  "MO": {
+      "fillKey": "Internet Explorer",
+      "value": 67
+  },
+
+  "MT": {
+      "fillKey": "Google Chrome",
+      "value": 5
+  },
+
+  "NE": {
+      "fillKey": "Google Chrome",
+      "value": 28
+  },
+
+  "NV": {
+      "fillKey": "Google Chrome",
+      "value": 52
+  },
+
+  "NH": {
+      "fillKey": "Internet Explorer",
+      "value": 14
+  },
+
+  "NJ": {
+      "fillKey": "Google Chrome",
+      "value": 140
+  },
+
+  "NM": {
+      "fillKey": "Internet Explorer",
+      "value": 22
+  },
+
+  "NY": {
+      "fillKey": "Google Chrome",
+      "value": 589
+  },
+
+  "NC": {
+      "fillKey": "Google Chrome",
+      "value": 121
+  },
+
+  "ND": {
+      "fillKey": "Google Chrome",
+      "value": 11
+  },
+
+  "OH": {
+      "fillKey": "Internet Explorer",
+      "value": 173
+  },
+
+  "OK": {
+      "fillKey": "Internet Explorer",
+      "value": 41
+  },
+
+  "OR": {
+      "fillKey": "Internet Explorer",
+      "value": 77
+  },
+
+  "PA": {
+      "fillKey": "Google Chrome",
+      "value": 171
+  },
+
+  "RI": {
+      "fillKey": "Internet Explorer",
+      "value": 24
+  },
+
+  "SC": {
+      "fillKey": "Internet Explorer",
+      "value": 69
+  },
+
+  "SD": {
+      "fillKey": "Internet Explorer",
+      "value": 10
+  },
+
+  "TN": {
+      "fillKey": "Internet Explorer",
+      "value": 78
+  },
+
+  "TX": {
+      "fillKey": "Internet Explorer",
+      "value": 311
+  },
+
+  "UT": {
+      "fillKey": "Internet Explorer",
+      "value": 45
+  },
+
+  "VT": {
+      "fillKey": "Google Chrome",
+      "value": 6
+  },
+
+  "VA": {
+      "fillKey": "Internet Explorer",
+      "value": 81
+  },
+
+  "WA": {
+      "fillKey": "Internet Explorer",
+      "value": 189
+  },
+
+  "WV": {
+      "fillKey": "Google Chrome",
+      "value": 37
+  },
+
+  "WI": {
+      "fillKey": "Google Chrome",
+      "value": 77
+  },
+
+  "WY": {
+      "fillKey": "Internet Explorer",
+      "value": 4
+  }
+}
+});
+
+//twitter_map.labels();
+twitter_map.legend();
+</script>
+
+<br />
+<br />
+<br />
+<br />
+
+<center><h3>No other interesting comparisons :-(</h3></center>
+
+<br />
+<br />

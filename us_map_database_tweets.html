@@ -1,0 +1,870 @@
+<!DOCTYPE html>
+<meta charset="utf-8">
+
+<style>
+        .map { position: relative; margin: 0 auto; width: 1000px; height: 500px;}
+</style>
+
+<title>The landscape of programming jobs in the U.S.</title>
+
+<script src="http://d3js.org/d3.v3.min.js"></script>
+<script src="http://d3js.org/topojson.v1.min.js"></script>
+<script src="http://datamaps.github.io/scripts/datamaps.usa.min.js"></script>
+
+<center><h1>What's the most commonly discussed database system on Twitter?</h1></center>
+
+<br />
+
+<center><h3>The most commonly mentioned database systems on Twitter in each U.S. state</h3></center>
+
+<div class="map" id="us_map_database_twitter_overall"></div>
+
+<script>
+var twitter_map = new Datamap({
+  scope: 'usa',
+  element: document.getElementById('us_map_database_twitter_overall'),
+  geographyConfig: {
+    highlightBorderColor: '#fff',
+   popupTemplate: function(geography, data) {
+      if (data.fillKey == 'No tweets') return '<div class="hoverinfo"><strong>' + geography.properties.name + '</strong> <br />No tweets available'
+   	  else return '<div class="hoverinfo"><strong>' + geography.properties.name + '</strong> <br />' + data.value + ' tweets about ' + data.fillKey + '</div>'
+    },
+    highlightBorderWidth: 3
+  },
+
+  fills: {
+  'Azure': '#1F77B4',
+  'NoSQL': '#D62834',
+  'SQL Server': '#FF7F0E',
+  'Mongo DB': '#2CA02C',
+  'MySQL': '#9467BD',
+  'Microsoft Access': '#b1c7e8',
+  'No tweets': '#7F7F7F',
+  defaultFill: '#7F7F7F'
+},
+data:{
+  "AL": {
+      "fillKey": "SQL Server",
+      "value": 12
+  },
+
+  "AK": {
+      "fillKey": "NoSQL",
+      "value": 3
+  },
+
+  "AZ": {
+      "fillKey": "Azure",
+      "value": 61
+  },
+
+  "AR": {
+      "fillKey": "NoSQL",
+      "value": 27
+  },
+
+  "CA": {
+      "fillKey": "NoSQL",
+      "value": 382
+  },
+
+  "CO": {
+      "fillKey": "NoSQL",
+      "value": 51
+  },
+
+  "CT": {
+      "fillKey": "Azure",
+      "value": 34
+  },
+
+  "DE": {
+      "fillKey": "Microsoft Access",
+      "value": 17
+  },
+
+  "FL": {
+      "fillKey": "Azure",
+      "value": 96
+  },
+
+  "GA": {
+      "fillKey": "NoSQL",
+      "value": 2688
+  },
+
+  "HI": {
+      "fillKey": "No tweets",
+      "value": 0
+  },
+
+  "ID": {
+      "fillKey": "Microsoft Access",
+      "value": 19
+  },
+
+  "IL": {
+      "fillKey": "Azure",
+      "value": 108
+  },
+
+  "IN": {
+      "fillKey": "Azure",
+      "value": 30
+  },
+
+  "IA": {
+      "fillKey": "MySQL",
+      "value": 4
+  },
+
+  "KS": {
+      "fillKey": "NoSQL",
+      "value": 7
+  },
+
+  "KY": {
+      "fillKey": "Azure",
+      "value": 9
+  },
+
+  "LA": {
+      "fillKey": "Azure",
+      "value": 13
+  },
+
+  "ME": {
+      "fillKey": "No tweets",
+      "value": 0
+  },
+
+  "MD": {
+      "fillKey": "Azure",
+      "value": 34
+  },
+
+  "MA": {
+      "fillKey": "NoSQL",
+      "value": 86
+  },
+
+  "MI": {
+      "fillKey": "Azure",
+      "value": 45
+  },
+
+  "MN": {
+      "fillKey": "Azure",
+      "value": 47
+  },
+
+  "MS": {
+      "fillKey": "MySQL",
+      "value": 2
+  },
+
+  "MO": {
+      "fillKey": "Azure",
+      "value": 20
+  },
+
+  "MT": {
+      "fillKey": "NoSQL",
+      "value": 2
+  },
+
+  "NE": {
+      "fillKey": "Azure",
+      "value": 10
+  },
+
+  "NV": {
+      "fillKey": "Azure",
+      "value": 17
+  },
+
+  "NH": {
+      "fillKey": "Azure",
+      "value": 6
+  },
+
+  "NJ": {
+      "fillKey": "NoSQL",
+      "value": 165
+  },
+
+  "NM": {
+      "fillKey": "NoSQL",
+      "value": 6
+  },
+
+  "NY": {
+      "fillKey": "Mongo DB",
+      "value": 323
+  },
+
+  "NC": {
+      "fillKey": "Azure",
+      "value": 135
+  },
+
+  "ND": {
+      "fillKey": "SQL Server",
+      "value": 3
+  },
+
+  "OH": {
+      "fillKey": "Azure",
+      "value": 119
+  },
+
+  "OK": {
+      "fillKey": "Azure",
+      "value": 27
+  },
+
+  "OR": {
+      "fillKey": "NoSQL",
+      "value": 13
+  },
+
+  "PA": {
+      "fillKey": "SQL Server",
+      "value": 42
+  },
+
+  "RI": {
+      "fillKey": "Microsoft Access",
+      "value": 9
+  },
+
+  "SC": {
+      "fillKey": "Azure",
+      "value": 9
+  },
+
+  "SD": {
+      "fillKey": "SQL Server",
+      "value": 0
+  },
+
+  "TN": {
+      "fillKey": "Azure",
+      "value": 11
+  },
+
+  "TX": {
+      "fillKey": "NoSQL",
+      "value": 211
+  },
+
+  "UT": {
+      "fillKey": "NoSQL",
+      "value": 10
+  },
+
+  "VT": {
+      "fillKey": "Azure",
+      "value": 2
+  },
+
+  "VA": {
+      "fillKey": "Azure",
+      "value": 51
+  },
+
+  "WA": {
+      "fillKey": "Azure",
+      "value": 614
+  },
+
+  "WV": {
+      "fillKey": "SQL Server",
+      "value": 7
+  },
+
+  "WI": {
+      "fillKey": "Azure",
+      "value": 24
+  },
+
+  "WY": {
+      "fillKey": "No tweets",
+      "value": 0
+  }
+}
+});
+
+//twitter_map.labels();
+twitter_map.legend();
+</script>
+
+<br />
+<br />
+<br />
+<br />
+
+<center><h3>NoSQL vs. SQL Server</h3></center>
+
+<div class="map" id="us_map_programming_twitter_NoSQL_sqlserver"></div>
+
+<script>
+var twitter_map = new Datamap({
+  scope: 'usa',
+  element: document.getElementById('us_map_programming_twitter_NoSQL_sqlserver'),
+  geographyConfig: {
+    highlightBorderColor: '#fff',
+   popupTemplate: function(geography, data) {
+   	  if (data.fillKey == 'No tweets') return '<div class="hoverinfo"><strong>' + geography.properties.name + '</strong> <br />No tweets available'
+   	  else return '<div class="hoverinfo"><strong>' + geography.properties.name + '</strong> <br />' + data.value + ' tweets about ' + data.fillKey + '</div>'
+    },
+    highlightBorderWidth: 3
+  },
+
+  fills: {
+  'NoSQL': '#1F77B4',
+  'SQL Server': '#D62834',
+  'No tweets': '#7F7F7F',
+  defaultFill: '#7F7F7F'
+},
+data:{
+  "AL": {
+      "fillKey": "SQL Server",
+      "value": 12
+  },
+
+  "AK": {
+      "fillKey": "NoSQL",
+      "value": 3
+  },
+
+  "AZ": {
+      "fillKey": "SQL Server",
+      "value": 7
+  },
+
+  "AR": {
+      "fillKey": "NoSQL",
+      "value": 27
+  },
+
+  "CA": {
+      "fillKey": "NoSQL",
+      "value": 382
+  },
+
+  "CO": {
+      "fillKey": "NoSQL",
+      "value": 51
+  },
+
+  "CT": {
+      "fillKey": "No tweets",
+      "value": 0
+  },
+
+  "DE": {
+      "fillKey": "No tweets",
+      "value": 0
+  },
+
+  "FL": {
+      "fillKey": "NoSQL",
+      "value": 38
+  },
+
+  "GA": {
+      "fillKey": "NoSQL",
+      "value": 2688
+  },
+
+  "HI": {
+      "fillKey": "No tweets",
+      "value": 0
+  },
+
+  "ID": {
+      "fillKey": "No tweets",
+      "value": 0
+  },
+
+  "IL": {
+      "fillKey": "SQL Server",
+      "value": 25
+  },
+
+  "IN": {
+      "fillKey": "SQL Server",
+      "value": 2
+  },
+
+  "IA": {
+      "fillKey": "No tweets",
+      "value": 0
+  },
+
+  "KS": {
+      "fillKey": "NoSQL",
+      "value": 7
+  },
+
+  "KY": {
+      "fillKey": "No tweets",
+      "value": 0
+  },
+
+  "LA": {
+      "fillKey": "No tweets",
+      "value": 0
+  },
+
+  "ME": {
+      "fillKey": "No tweets",
+      "value": 0
+  },
+
+  "MD": {
+      "fillKey": "SQL Server",
+      "value": 20
+  },
+
+  "MA": {
+      "fillKey": "NoSQL",
+      "value": 86
+  },
+
+  "MI": {
+      "fillKey": "NoSQL",
+      "value": 5
+  },
+
+  "MN": {
+      "fillKey": "SQL Server",
+      "value": 10
+  },
+
+  "MS": {
+      "fillKey": "No tweets",
+      "value": 0
+  },
+
+  "MO": {
+      "fillKey": "NoSQL",
+      "value": 12
+  },
+
+  "MT": {
+      "fillKey": "NoSQL",
+      "value": 2
+  },
+
+  "NE": {
+      "fillKey": "No tweets",
+      "value": 0
+  },
+
+  "NV": {
+      "fillKey": "No tweets",
+      "value": 0
+  },
+
+  "NH": {
+      "fillKey": "NoSQL",
+      "value": 4
+  },
+
+  "NJ": {
+      "fillKey": "NoSQL",
+      "value": 165
+  },
+
+  "NM": {
+      "fillKey": "NoSQL",
+      "value": 6
+  },
+
+  "NY": {
+      "fillKey": "NoSQL",
+      "value": 148
+  },
+
+  "NC": {
+      "fillKey": "SQL Server",
+      "value": 36
+  },
+
+  "ND": {
+      "fillKey": "SQL Server",
+      "value": 3
+  },
+
+  "OH": {
+      "fillKey": "NoSQL",
+      "value": 16
+  },
+
+  "OK": {
+      "fillKey": "NoSQL",
+      "value": 7
+  },
+
+  "OR": {
+      "fillKey": "NoSQL",
+      "value": 13
+  },
+
+  "PA": {
+      "fillKey": "SQL Server",
+      "value": 42
+  },
+
+  "RI": {
+      "fillKey": "No tweets",
+      "value": 0
+  },
+
+  "SC": {
+      "fillKey": "SQL Server",
+      "value": 5
+  },
+
+  "SD": {
+      "fillKey": "No tweets",
+      "value": 0
+  },
+
+  "TN": {
+      "fillKey": "No tweets",
+      "value": 0
+  },
+
+  "TX": {
+      "fillKey": "NoSQL",
+      "value": 211
+  },
+
+  "UT": {
+      "fillKey": "NoSQL",
+      "value": 10
+  },
+
+  "VT": {
+      "fillKey": "No tweets",
+      "value": 0
+  },
+
+  "VA": {
+      "fillKey": "NoSQL",
+      "value": 18
+  },
+
+  "WA": {
+      "fillKey": "SQL Server",
+      "value": 60
+  },
+
+  "WV": {
+      "fillKey": "SQL Server",
+      "value": 7
+  },
+
+  "WI": {
+      "fillKey": "SQL Server",
+      "value": 7
+  },
+
+  "WY": {
+      "fillKey": "No tweets",
+      "value": 0
+  }
+}
+});
+
+//twitter_map.labels();
+twitter_map.legend();
+</script>
+
+<br />
+<br />
+<br />
+<br />
+
+<center><h3>Azure vs. NoSQL</h3></center>
+
+<div class="map" id="us_map_programming_twitter_Azure_NoSQL"></div>
+
+<script>
+var twitter_map = new Datamap({
+  scope: 'usa',
+  element: document.getElementById('us_map_programming_twitter_Azure_NoSQL'),
+  geographyConfig: {
+    highlightBorderColor: '#fff',
+   popupTemplate: function(geography, data) {
+   	  if (data.fillKey == 'No tweets') return '<div class="hoverinfo"><strong>' + geography.properties.name + '</strong> <br />No tweets available'
+   	  else return '<div class="hoverinfo"><strong>' + geography.properties.name + '</strong> <br />' + data.value + ' tweets about ' + data.fillKey + '</div>'
+    },
+    highlightBorderWidth: 3
+  },
+
+  fills: {
+  'Azure': '#1F77B4',
+  'NoSQL': '#D62834',
+  'No tweets': '#7F7F7F',
+  defaultFill: '#7F7F7F'
+},
+data:{
+  "AL": {
+      "fillKey": "Azure",
+      "value": 8
+  },
+
+  "AK": {
+      "fillKey": "NoSQL",
+      "value": 3
+  },
+
+  "AZ": {
+      "fillKey": "Azure",
+      "value": 61
+  },
+
+  "AR": {
+      "fillKey": "NoSQL",
+      "value": 27
+  },
+
+  "CA": {
+      "fillKey": "NoSQL",
+      "value": 382
+  },
+
+  "CO": {
+      "fillKey": "NoSQL",
+      "value": 51
+  },
+
+  "CT": {
+      "fillKey": "Azure",
+      "value": 34
+  },
+
+  "DE": {
+      "fillKey": "No tweets",
+      "value": 0
+  },
+
+  "FL": {
+      "fillKey": "Azure",
+      "value": 96
+  },
+
+  "GA": {
+      "fillKey": "NoSQL",
+      "value": 2688
+  },
+
+  "HI": {
+      "fillKey": "No tweets",
+      "value": 0
+  },
+
+  "ID": {
+      "fillKey": "No tweets",
+      "value": 0
+  },
+
+  "IL": {
+      "fillKey": "Azure",
+      "value": 108
+  },
+
+  "IN": {
+      "fillKey": "Azure",
+      "value": 30
+  },
+
+  "IA": {
+      "fillKey": "Azure",
+      "value": 3
+  },
+
+  "KS": {
+      "fillKey": "NoSQL",
+      "value": 7
+  },
+
+  "KY": {
+      "fillKey": "Azure",
+      "value": 9
+  },
+
+  "LA": {
+      "fillKey": "Azure",
+      "value": 13
+  },
+
+  "ME": {
+      "fillKey": "No tweets",
+      "value": 0
+  },
+
+  "MD": {
+      "fillKey": "Azure",
+      "value": 34
+  },
+
+  "MA": {
+      "fillKey": "NoSQL",
+      "value": 86
+  },
+
+  "MI": {
+      "fillKey": "Azure",
+      "value": 45
+  },
+
+  "MN": {
+      "fillKey": "Azure",
+      "value": 47
+  },
+
+  "MS": {
+      "fillKey": "No tweets",
+      "value": 0
+  },
+
+  "MO": {
+      "fillKey": "Azure",
+      "value": 20
+  },
+
+  "MT": {
+      "fillKey": "NoSQL",
+      "value": 2
+  },
+
+  "NE": {
+      "fillKey": "Azure",
+      "value": 10
+  },
+
+  "NV": {
+      "fillKey": "Azure",
+      "value": 17
+  },
+
+  "NH": {
+      "fillKey": "Azure",
+      "value": 6
+  },
+
+  "NJ": {
+      "fillKey": "NoSQL",
+      "value": 165
+  },
+
+  "NM": {
+      "fillKey": "NoSQL",
+      "value": 6
+  },
+
+  "NY": {
+      "fillKey": "NoSQL",
+      "value": 148
+  },
+
+  "NC": {
+      "fillKey": "Azure",
+      "value": 135
+  },
+
+  "ND": {
+      "fillKey": "Azure",
+      "value": 2
+  },
+
+  "OH": {
+      "fillKey": "Azure",
+      "value": 119
+  },
+
+  "OK": {
+      "fillKey": "Azure",
+      "value": 27
+  },
+
+  "OR": {
+      "fillKey": "NoSQL",
+      "value": 13
+  },
+
+  "PA": {
+      "fillKey": "Azure",
+      "value": 40
+  },
+
+  "RI": {
+      "fillKey": "Azure",
+      "value": 2
+  },
+
+  "SC": {
+      "fillKey": "Azure",
+      "value": 9
+  },
+
+  "SD": {
+      "fillKey": "No tweets",
+      "value": 0
+  },
+
+  "TN": {
+      "fillKey": "Azure",
+      "value": 11
+  },
+
+  "TX": {
+      "fillKey": "NoSQL",
+      "value": 211
+  },
+
+  "UT": {
+      "fillKey": "NoSQL",
+      "value": 10
+  },
+
+  "VT": {
+      "fillKey": "Azure",
+      "value": 2
+  },
+
+  "VA": {
+      "fillKey": "Azure",
+      "value": 51
+  },
+
+  "WA": {
+      "fillKey": "Azure",
+      "value": 614
+  },
+
+  "WV": {
+      "fillKey": "NoSQL",
+      "value": 4
+  },
+
+  "WI": {
+      "fillKey": "Azure",
+      "value": 24
+  },
+
+  "WY": {
+      "fillKey": "No tweets",
+      "value": 0
+  }
+}
+});
+
+//twitter_map.labels();
+twitter_map.legend();
+</script>
